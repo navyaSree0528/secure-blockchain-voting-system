@@ -14,6 +14,11 @@ class Block:
 
     def calculate_hash(self):
 
-        data = str(self.index) + str(self.vote) + str(self.timestamp) + str(self.previous_hash)
+        data = (
+            str(self.index)
+            + str(self.vote)
+            + str(self.timestamp)
+            + str(self.previous_hash)
+        )
 
         return hashlib.sha256(data.encode()).hexdigest()

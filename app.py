@@ -1,24 +1,26 @@
-from flask import Flask, render_template, request, redirect, session
-from datetime import datetime, timedelta
-from threading import Lock
+from flask import Flask, render_template, request, redirect, session, jsonify
+import hashlib
 import os
 import logging
+import matplotlib.pyplot as plt
 
 # database
 from database.db import (
-    create_table,
-    create_vote_table,
+    create_tables,
     add_voter,
     validate_voter,
+    has_voted,
     mark_voted,
-    has_already_voted,
     store_vote,
-    get_votes
+    get_votes,
+    verify_vote,
+    voter_exists,
+    is_eligible,
+    get_voter_count
 )
 
 # crypto
 from crypto.encryption import encrypt_vote, decrypt_vote
-from crypto.blind_signature import blind_message, sign_blinded, unblind_signature
 
 # mixnet
 from mixnet.mixnet import shuffle_votes
@@ -28,12 +30,12 @@ from blockchain.blockchain import Blockchain
 
 
 app = Flask(__name__)
-app.secret_key = "supersecurekey"
+app.secret_key = "securekey123"
 
-# --------------------------
-# Logging setup
-# --------------------------
 
+# -------------------------
+# Logging
+# -------------------------
 os.makedirs("logs", exist_ok=True)
 
 logging.basicConfig(
@@ -42,90 +44,85 @@ logging.basicConfig(
     format="%(asctime)s - %(message)s"
 )
 
-# --------------------------
-# Intrusion Detection
-# --------------------------
 
-failed_attempts = {}
-MAX_ATTEMPTS = 5
-BLOCK_TIME = 120
-
-# --------------------------
+# -------------------------
 # Blockchain
-# --------------------------
-
+# -------------------------
 blockchain = Blockchain()
 
-# --------------------------
-# Concurrency lock
-# --------------------------
 
-vote_lock = Lock()
+# -------------------------
+# Election control
+# -------------------------
+election_open = True
 
-# --------------------------
+
+# -------------------------
 # Admin credentials
-# --------------------------
-
+# -------------------------
 ADMIN_ID = "admin"
 ADMIN_PASSWORD = "admin123"
 
-# --------------------------
-# HOME
-# --------------------------
 
+# -------------------------
+# HOME
+# -------------------------
 @app.route("/")
 def home():
     return render_template("login.html")
 
 
-# --------------------------
-# LOGIN
-# --------------------------
+# -------------------------
+# REGISTER
+# -------------------------
+@app.route("/register", methods=["GET", "POST"])
+def register():
 
+    if request.method == "POST":
+
+        voter_id = request.form["voter_id"]
+        password = request.form["password"]
+
+        if not is_eligible(voter_id):
+            return "You are not found in the voter database."
+
+        if voter_exists(voter_id):
+            return "You are already registered."
+
+        add_voter(voter_id, password)
+
+        logging.info(f"{voter_id} registered")
+
+        return redirect("/")
+
+    return render_template("register.html")
+
+
+# -------------------------
+# LOGIN
+# -------------------------
 @app.route("/login", methods=["POST"])
 def login():
 
     voter_id = request.form["voter_id"]
     password = request.form["password"]
 
-    now = datetime.now()
-
-    if voter_id in failed_attempts:
-
-        attempts, block_until = failed_attempts[voter_id]
-
-        if block_until and now < block_until:
-            return "Account temporarily blocked."
-
     if validate_voter(voter_id, password):
 
         session["user"] = voter_id
 
-        if voter_id in failed_attempts:
-            del failed_attempts[voter_id]
+        logging.info(f"{voter_id} logged in")
 
         return redirect("/dashboard")
 
-    if voter_id not in failed_attempts:
-        failed_attempts[voter_id] = [1, None]
-    else:
-        failed_attempts[voter_id][0] += 1
+    logging.warning(f"Failed login attempt {voter_id}")
 
-    attempts = failed_attempts[voter_id][0]
-
-    if attempts >= MAX_ATTEMPTS:
-
-        failed_attempts[voter_id][1] = now + timedelta(seconds=BLOCK_TIME)
-
-        return "Too many failed attempts."
-
-    return "Invalid Voter ID or Password"
+    return "Invalid credentials"
 
 
-# --------------------------
-# DASHBOARD
-# --------------------------
-
+# -------------------------
+# USER DASHBOARD
+# -------------------------
 @app.route("/dashboard")
 def dashboard():
 
@@ -135,10 +132,9 @@ def dashboard():
     return render_template("dashboard.html")
 
 
-# --------------------------
-# VOTING PAGE
-# --------------------------
-
+# -------------------------
+# VOTE PAGE
+# -------------------------
 @app.route("/vote")
 def vote():
 
@@ -148,53 +144,154 @@ def vote():
     return render_template("vote.html")
 
 
-# --------------------------
+# -------------------------
 # SUBMIT VOTE
-# --------------------------
-
+# -------------------------
 @app.route("/submit_vote", methods=["POST"])
 def submit_vote():
 
+    global election_open
+
+    if not election_open:
+        return "Voting is currently closed."
+
     if "user" not in session:
         return redirect("/")
 
-    voter_id = session["user"]
+    voter = session["user"]
 
-    if has_already_voted(voter_id):
-        return "You have already voted!"
+    if has_voted(voter):
+        return render_template("already_voted.html")
 
     candidate = request.form["candidate"]
 
-    # blind signature process
-    blinded, r = blind_message(candidate)
-    signed = sign_blinded(blinded)
-    signature = unblind_signature(signed, r)
-
     encrypted_vote = encrypt_vote(candidate)
 
-    with vote_lock:
+    vote_hash = hashlib.sha256(encrypted_vote).hexdigest()
 
-        store_vote(encrypted_vote)
+    store_vote(vote_hash, encrypted_vote)
 
-        blockchain.add_block(encrypted_vote)
+    blockchain.add_block(encrypted_vote)
 
-    mark_voted(voter_id)
+    mark_voted(voter)
 
-    return redirect("/result")
+    logging.info(f"{voter} cast vote")
+
+    return render_template(
+        "vote_success.html",
+        vote_hash=vote_hash
+    )
 
 
-# --------------------------
-# RESULTS
-# --------------------------
+# -------------------------
+# VERIFY VOTE
+# -------------------------
+@app.route("/verify_vote", methods=["GET", "POST"])
+def verify():
 
-@app.route("/result")
-def result():
+    if request.method == "POST":
 
-    if "user" not in session:
-        return redirect("/")
+        vote_hash = request.form["vote_hash"]
 
-    # Import matplotlib ONLY here (faster startup)
-    import matplotlib.pyplot as plt
+        valid = verify_vote(vote_hash)
+
+        return render_template(
+            "verify_result.html",
+            valid=valid
+        )
+
+    return render_template("verify_vote.html")
+
+
+# -------------------------
+# BLOCKCHAIN VIEW
+# -------------------------
+@app.route("/blockchain")
+def blockchain_view():
+
+    return render_template(
+        "blockchain_view.html",
+        chain=blockchain.chain
+    )
+
+
+# -------------------------
+# ADMIN LOGIN
+# -------------------------
+@app.route("/admin", methods=["GET", "POST"])
+def admin():
+
+    if request.method == "POST":
+
+        admin_id = request.form["admin_id"]
+        password = request.form["password"]
+
+        if admin_id == ADMIN_ID and password == ADMIN_PASSWORD:
+
+            session["admin"] = admin_id
+
+            logging.info("Admin logged in")
+
+            return redirect("/admin/dashboard")
+
+        return "Invalid credentials"
+
+    return render_template("admin_login.html")
+
+
+# -------------------------
+# ADMIN DASHBOARD
+# -------------------------
+@app.route("/admin/dashboard")
+def admin_dashboard():
+
+    votes = get_votes()
+
+    voter_count = get_voter_count()
+
+    return render_template(
+        "admin_dashboard.html",
+        votes=len(votes),
+        voters=voter_count,
+        blocks=len(blockchain.chain)
+    )
+
+
+# -------------------------
+# OPEN ELECTION
+# -------------------------
+@app.route("/admin/open_election")
+def open_election():
+
+    global election_open
+
+    election_open = True
+
+    logging.info("Election opened")
+
+    return redirect("/admin/dashboard")
+
+
+# -------------------------
+# CLOSE ELECTION
+# -------------------------
+@app.route("/admin/close_election")
+def close_election():
+
+    global election_open
+
+    election_open = False
+
+    logging.info("Election closed")
+
+    return redirect("/admin/dashboard")
+
+
+# -------------------------
+# ADMIN RESULTS
+# -------------------------
+@app.route("/admin/results")
+def admin_results():
 
     encrypted_votes = get_votes()
 
@@ -230,29 +327,50 @@ def result():
 
     plt.close()
 
-    return render_template("result.html", count=count, chart=chart_path)
-
-
-# --------------------------
-# BLOCKCHAIN VIEW
-# --------------------------
-
-@app.route("/blockchain")
-def blockchain_view():
-
-    if "user" not in session:
-        return redirect("/")
-
     return render_template(
-        "blockchain_view.html",
-        chain=blockchain.chain
+        "admin_results.html",
+        count=count,
+        chart=chart_path
     )
 
 
-# --------------------------
-# LOGOUT
-# --------------------------
+# -------------------------
+# VERIFY BLOCKCHAIN
+# -------------------------
+@app.route("/admin/verify_chain")
+def verify_chain():
 
+    valid = blockchain.is_chain_valid()
+
+    return render_template(
+        "chain_status.html",
+        valid=valid
+    )
+
+
+# -------------------------
+# EXPORT BLOCKCHAIN
+# -------------------------
+@app.route("/admin/export_blockchain")
+def export_blockchain():
+
+    data = []
+
+    for block in blockchain.chain:
+
+        data.append({
+            "index": block.index,
+            "vote": str(block.vote),
+            "hash": block.hash,
+            "previous_hash": block.previous_hash
+        })
+
+    return jsonify(data)
+
+
+# -------------------------
+# LOGOUT
+# -------------------------
 @app.route("/logout")
 def logout():
 
@@ -261,109 +379,11 @@ def logout():
     return redirect("/")
 
 
-# --------------------------
-# ADMIN LOGIN
-# --------------------------
-
-@app.route("/admin", methods=["GET","POST"])
-def admin_login():
-
-    if request.method == "POST":
-
-        admin_id = request.form["admin_id"]
-        password = request.form["password"]
-
-        if admin_id == ADMIN_ID and password == ADMIN_PASSWORD:
-
-            session["admin"] = admin_id
-
-            return redirect("/admin/dashboard")
-
-        return "Invalid Admin Credentials"
-
-    return render_template("admin_login.html")
-
-
-# --------------------------
-# ADMIN DASHBOARD
-# --------------------------
-
-@app.route("/admin/dashboard")
-def admin_dashboard():
-
-    if "admin" not in session:
-        return redirect("/admin")
-
-    votes = get_votes()
-
-    return render_template(
-        "admin_dashboard.html",
-        voters=len(votes),
-        blocks=len(blockchain.chain)
-    )
-
-
-# --------------------------
-# VERIFY BLOCKCHAIN
-# --------------------------
-
-@app.route("/admin/verify_chain")
-def verify_chain():
-
-    if "admin" not in session:
-        return redirect("/admin")
-
-    valid = True
-
-    chain = blockchain.chain
-
-    for i in range(1, len(chain)):
-
-        current = chain[i]
-        previous = chain[i-1]
-
-        if current.previous_hash != previous.hash:
-            valid = False
-            break
-
-    return render_template("chain_status.html", valid=valid)
-
-
-# --------------------------
+# -------------------------
 # START SERVER
-# --------------------------
-
+# -------------------------
 if __name__ == "__main__":
 
-    create_table()
-    create_vote_table()
-
-    # Create voters only if database empty
-    if len(get_votes()) == 0:
-
-        voters = [
-            ("VOTER001","1234"),
-            ("VOTER002","1234"),
-            ("VOTER003","1234"),
-            ("VOTER004","1234"),
-            ("VOTER005","1234"),
-            ("VOTER006","1234"),
-            ("VOTER007","1234"),
-            ("VOTER008","1234"),
-            ("VOTER009","1234"),
-            ("VOTER010","1234"),
-            ("VOTER011","1234"),
-            ("VOTER012","1234"),
-            ("VOTER013","1234"),
-            ("VOTER014","1234"),
-            ("VOTER015","1234")
-        ]
-
-        for v in voters:
-
-            try:
-                add_voter(v[0], v[1])
-            except:
-                pass
+    create_tables()
 
     app.run(debug=True)

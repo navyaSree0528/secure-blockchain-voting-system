@@ -10,11 +10,16 @@ public_key = key.publickey()
 
 def blind_message(message):
 
-    message_hash = int.from_bytes(SHA256.new(message.encode()).digest(), 'big')
+    message_hash = int.from_bytes(
+        SHA256.new(message.encode()).digest(),
+        'big'
+    )
 
     r = random.randint(2, public_key.n - 1)
 
-    blinded = (message_hash * pow(r, public_key.e, public_key.n)) % public_key.n
+    blinded = (
+        message_hash * pow(r, public_key.e, public_key.n)
+    ) % public_key.n
 
     return blinded, r
 
