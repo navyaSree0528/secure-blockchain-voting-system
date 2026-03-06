@@ -3,6 +3,9 @@ import hashlib
 import os
 import logging
 import matplotlib.pyplot as plt
+import random
+import time
+
 
 # database
 from database.db import (
@@ -16,7 +19,8 @@ from database.db import (
     verify_vote,
     voter_exists,
     is_eligible,
-    get_voter_count
+    get_voter_count,
+    get_phone
 )
 
 # crypto
@@ -31,6 +35,12 @@ from blockchain.blockchain import Blockchain
 
 app = Flask(__name__)
 app.secret_key = "securekey123"
+
+
+# -------------------------
+# OTP STORAGE
+# -------------------------
+otp_store = {}
 
 
 # -------------------------
@@ -73,29 +83,80 @@ def home():
 
 
 # -------------------------
-# REGISTER
+# REGISTER PAGE
 # -------------------------
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register")
 def register():
-
-    if request.method == "POST":
-
-        voter_id = request.form["voter_id"]
-        password = request.form["password"]
-
-        if not is_eligible(voter_id):
-            return "You are not found in the voter database."
-
-        if voter_exists(voter_id):
-            return "You are already registered."
-
-        add_voter(voter_id, password)
-
-        logging.info(f"{voter_id} registered")
-
-        return redirect("/")
-
     return render_template("register.html")
+
+
+# -------------------------
+# SEND OTP FOR REGISTRATION
+# -------------------------
+@app.route("/send_register_otp", methods=["POST"])
+def send_register_otp():
+
+    voter_id = request.form["voter_id"]
+
+    if not is_eligible(voter_id):
+        return "You are not an eligible voter."
+
+    if voter_exists(voter_id):
+        return "You are already registered."
+
+    phone = get_phone(voter_id)
+
+    if not phone:
+        return "Phone number not found."
+
+    otp = random.randint(100000, 999999)
+
+    otp_store[voter_id] = (otp, time.time())
+
+    print("OTP for", voter_id, "=", otp)
+
+    logging.info(f"OTP sent for voter {voter_id}")
+
+    return render_template("verify_otp.html", voter_id=voter_id)
+
+
+# -------------------------
+# VERIFY OTP
+# -------------------------
+@app.route("/verify_otp", methods=["POST"])
+def verify_otp():
+
+    voter_id = request.form["voter_id"]
+    otp = request.form["otp"]
+
+    if voter_id not in otp_store:
+        return "OTP not generated."
+
+    stored_otp, timestamp = otp_store[voter_id]
+
+    if time.time() - timestamp > 300:
+        return "OTP expired."
+
+    if str(stored_otp) != otp:
+        return "Invalid OTP."
+
+    return render_template("set_password.html", voter_id=voter_id)
+
+
+# -------------------------
+# SET PASSWORD
+# -------------------------
+@app.route("/set_password", methods=["POST"])
+def set_password():
+
+    voter_id = request.form["voter_id"]
+    password = request.form["password"]
+
+    add_voter(voter_id, password)
+
+    logging.info(f"{voter_id} completed registration")
+
+    return redirect("/")
 
 
 # -------------------------

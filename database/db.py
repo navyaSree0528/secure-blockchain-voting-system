@@ -19,12 +19,13 @@ def create_tables():
     conn = create_connection()
     cursor = conn.cursor()
 
-    # eligible voters list
+    # eligible voters
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS eligible_voters(
         voter_id TEXT PRIMARY KEY,
         name TEXT,
-        age INTEGER
+        age INTEGER,
+        phone TEXT
     )
     """)
 
@@ -46,30 +47,50 @@ def create_tables():
     )
     """)
 
-    # -----------------------------
-    # AUTO INSERT ELIGIBLE VOTERS
-    # -----------------------------
+    # insert sample eligible voters
     cursor.execute("SELECT COUNT(*) FROM eligible_voters")
     count = cursor.fetchone()[0]
 
     if count == 0:
 
         voters = [
-            ("VOTER001", "Ravi", 24),
-            ("VOTER002", "Priya", 30),
-            ("VOTER003", "Arjun", 17),
-            ("VOTER004", "Anita", 21),
-            ("VOTER005", "Rahul", 28),
-            ("VOTER006", "Sneha", 26)
+            ("VOTER001", "Ravi", 24, "9876543210"),
+            ("VOTER002", "Priya", 30, "9876543211"),
+            ("VOTER004", "Anita", 21, "9876543212"),
+            ("VOTER005", "Rahul", 28, "9876543213"),
+            ("VOTER006", "Sneha", 26, "9876543214")
         ]
 
         cursor.executemany(
-            "INSERT INTO eligible_voters VALUES (?,?,?)",
+            "INSERT INTO eligible_voters VALUES (?,?,?,?)",
             voters
         )
 
     conn.commit()
     conn.close()
+
+
+# -----------------------------
+# GET PHONE NUMBER
+# -----------------------------
+def get_phone(voter_id):
+
+    conn = create_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT phone FROM eligible_voters WHERE voter_id=?",
+        (voter_id,)
+    )
+
+    result = cursor.fetchone()
+
+    conn.close()
+
+    if result:
+        return result[0]
+
+    return None
 
 
 # -----------------------------
