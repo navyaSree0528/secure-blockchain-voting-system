@@ -1,211 +1,220 @@
-# Secure Blockchain Voting System
+# Secure Blockchain-Based Voting System
 
-A **privacy-preserving blockchain-based e-voting system** built using Python and Flask.  
-The system integrates **cryptographic techniques and blockchain principles** to ensure vote confidentiality, integrity, and transparency.
+A secure and privacy-preserving electronic voting system built using Flask, encryption, and blockchain concepts. The system ensures that only verified voters can register, votes remain confidential, and all records are tamper-resistant.
 
 ---
 
 ## Overview
 
-This project simulates a secure digital voting environment where:
+This project implements a voting platform with strong security mechanisms:
 
-- Only **authenticated voters** can participate
-- Votes are **encrypted** before being stored
-- A **blockchain ledger** ensures tamper-resistant vote records
-- **Blind signatures** protect voter identity
-- **Mixnet shuffling** anonymizes ballots before counting
-
-The goal of this project is to demonstrate how **blockchain and cryptographic protocols can enhance election security and transparency**.
+* Voter registration is protected using OTP verification
+* Passwords are securely stored using hashing
+* Votes are encrypted before storage
+* A blockchain structure ensures data integrity
+* Mixnet is used to anonymize votes before counting
 
 ---
 
 ## Features
 
-- Secure voter authentication
-- Pre-authorized voter list
-- Double vote prevention
-- Blind signature protocol
-- Encrypted ballot storage
-- Mixnet-based vote anonymization
-- Blockchain vote ledger
-- Election result visualization
-- Blockchain integrity verification
-- Admin dashboard
+### Voter Registration
+
+* Only eligible voters can register
+* OTP verification using registered phone numbers
+* Prevents unauthorized account creation
+* Passwords stored using bcrypt hashing
+
+### Authentication
+
+* Login using Voter ID and password
+* Session-based access control
+
+### Voting System
+
+* Each voter can vote only once
+* Votes are encrypted using Fernet encryption
+* Ensures vote confidentiality and integrity
+
+### Blockchain Storage
+
+* Votes are stored as blocks in a blockchain
+* Each block contains:
+
+  * Encrypted vote
+  * Hash of previous block
+* Ensures immutability and tamper detection
+
+### Mixnet Anonymization
+
+* Votes are shuffled before counting
+* Prevents linking voters to their votes
+
+### Admin Panel
+
+* Open and close elections
+* View total votes and registered voters
+* View election results with charts
+* Verify blockchain integrity
+* Export blockchain data
+
+### Vote Verification
+
+* Each vote generates a unique hash
+* Users can verify that their vote exists in the system
 
 ---
 
-## System Architecture
+## System Flow
 
-```
-User
-  ↓
-Authentication
-  ↓
+```id="flow001"
+Registration
+   ↓
+OTP Verification
+   ↓
+Password Creation
+   ↓
+Login
+   ↓
 Vote Encryption
-  ↓
-Mixnet Shuffling
-  ↓
+   ↓
 Blockchain Storage
-  ↓
-Result Calculation
+   ↓
+Mixnet Shuffling
+   ↓
+Result Decryption (Admin)
 ```
-
-### Main Components
-
-- **Flask Web Server**
-- **SQLite Database**
-- **Blockchain Ledger**
-- **Cryptographic Modules**
-- **Visualization for Results**
 
 ---
 
-## Technologies Used
+## Technology Stack
 
-- **Python**
-- **Flask**
-- **SQLite**
-- **Cryptography**
-- **Matplotlib**
-- **HTML / CSS / JavaScript**
-- **Bootstrap**
+* Backend: Python, Flask
+* Database: SQLite
+* Encryption: Fernet (cryptography library)
+* Password Hashing: bcrypt
+* Blockchain: Custom implementation in Python
+* Frontend: HTML, Bootstrap
+* Visualization: Matplotlib
 
 ---
 
 ## Project Structure
 
-```
-secure-blockchain-voting-system
+```id="struct001"
+secure_voting_system/
 │
-├── blockchain/        # Blockchain implementation
+├── app.py
+├── requirements.txt
+├── README.md
+│
+├── database/
+│   └── db.py
+│
+├── blockchain/
 │   ├── block.py
 │   └── blockchain.py
 │
-├── crypto/            # Encryption and blind signatures
+├── crypto/
 │   ├── encryption.py
-│   ├── blind_signature.py
-│   └── hashing.py
+│   └── blind_signature.py
 │
-├── database/          # Database operations
-│   └── db.py
-│
-├── mixnet/            # Vote anonymization
+├── mixnet/
 │   └── mixnet.py
 │
-├── templates/         # HTML pages
+├── templates/
+│   ├── login.html
+│   ├── register.html
+│   ├── verify_otp.html
+│   ├── set_password.html
+│   ├── dashboard.html
+│   ├── vote.html
+│   ├── vote_success.html
+│   ├── verify_vote.html
+│   ├── verify_result.html
+│   ├── blockchain_view.html
+│   ├── chain_status.html
+│   ├── admin_login.html
+│   ├── admin_dashboard.html
+│   └── admin_results.html
 │
-├── static/            # CSS, JavaScript, charts
+├── static/
+│   └── charts/
 │
-├── app.py             # Main Flask application
-├── config.py          # Configuration file
-├── create_voters.py   # Script to generate voters
-├── requirements.txt   # Python dependencies
-└── voters.db          # SQLite database
+├── logs/
+└── voters.db
 ```
 
 ---
 
-## How to Run the Project
+## Installation and Setup
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
-```bash
-git clone https://github.com/navyaSree0528/secure-blockchain-voting-system.git
+```id="setup001"
+git clone https://github.com/YOUR_USERNAME/secure-blockchain-voting-system.git
 cd secure-blockchain-voting-system
 ```
 
----
+### 2. Create a virtual environment
 
-### 2. Create a Virtual Environment
-
-**Windows**
-
-```bash
+```id="setup002"
 python -m venv venv
 venv\Scripts\activate
 ```
 
-**Mac / Linux**
+### 3. Install dependencies
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
----
-
-### 3. Install Dependencies
-
-```bash
+```id="setup003"
 pip install -r requirements.txt
 ```
 
----
+If requirements.txt is not available:
 
-### 4. Run the Application
+```id="setup004"
+pip install flask bcrypt cryptography matplotlib
+```
 
-```bash
+### 4. Run the application
+
+```id="setup005"
 python app.py
 ```
 
----
+Open the application in your browser:
 
-### 5. Open the Application
-
-Open your browser and go to:
-
-```
-http://127.0.0.1:5000
+```id="setup006"
+http://127.0.0.1:5000/
 ```
 
 ---
 
-## Demo Voter Credentials
+## Security Features
 
-| Voter ID | Password |
-|--------|--------|
-| VOTER001 | 1234 |
-| VOTER002 | 1234 |
-| VOTER003 | 1234 |
-| VOTER004 | 1234 |
-| VOTER005 | 1234 |
-| VOTER006 | 1234 |
-| VOTER007 | 1234 |
-| VOTER008 | 1234 |
-| VOTER009 | 1234 |
-| VOTER010 | 1234 |
-| VOTER011 | 1234 |
-| VOTER012 | 1234 |
-| VOTER013 | 1234 |
-| VOTER014 | 1234 |
-| VOTER015 | 1234 |
-
-### Admin Login
-
-```
-Admin ID: admin
-Password: admin123
-```
+* OTP-based verification during registration
+* Password hashing using bcrypt
+* Encrypted votes using Fernet
+* Blockchain structure to prevent tampering
+* Mixnet anonymization for voter privacy
+* One-vote-per-user enforcement
 
 ---
 
-## Security Mechanisms
+## Limitations
 
-This system integrates multiple security layers:
-
-- **Authentication** → verifies eligible voters
-- **Blind Signatures** → protects voter identity
-- **Encryption** → secures ballots
-- **Mixnet Shuffling** → removes vote-voter linkage
-- **Blockchain Ledger** → ensures vote immutability
-- **Integrity Verification** → detects tampering
+* OTP is displayed in the terminal (no SMS integration)
+* SQLite is not suitable for large-scale deployment
+* Blockchain implementation is simplified for educational purposes
 
 ---
 
-## Educational Purpose
+## Future Enhancements
 
-This project is a **prototype implementation designed for educational and research purposes**.  
-It demonstrates how **blockchain technology and cryptographic techniques can improve the security, transparency, and privacy of electronic voting systems**.
+* Integration with SMS APIs (Fast2SMS or Twilio)
+* CAPTCHA to prevent OTP abuse
+* Cloud deployment
+* Real-time analytics dashboard
+* Improved user interface for production use
 
 ---
 
