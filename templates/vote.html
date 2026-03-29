@@ -1,67 +1,313 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast Vote</title>
 
-<title>Cast Vote</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
 
+        body{
+            background:#eef3fb;
+            min-height:100vh;
+        }
+
+        .vote-container{
+            max-width:760px;
+            margin:35px auto;
+            padding:0 16px;
+        }
+
+        .vote-card{
+            background:white;
+            border-radius:26px;
+            padding:30px;
+            box-shadow:0 16px 35px rgba(0,0,0,0.08);
+        }
+
+        .header{
+            text-align:center;
+            margin-bottom:28px;
+        }
+
+        .header-icon{
+            width:68px;
+            height:68px;
+            margin:0 auto 16px;
+            border-radius:18px;
+            background:linear-gradient(135deg,#2a6cff,#5c8cff);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            font-size:28px;
+        }
+
+        .header h1{
+            font-size:2rem;
+            font-weight:700;
+            color:#12284a;
+            margin-bottom:8px;
+        }
+
+        .header p{
+            color:#6b7280;
+            font-size:15px;
+        }
+
+        .candidate-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:16px;
+            margin-bottom:26px;
+        }
+
+        .candidate-option input{
+            display:none;
+        }
+
+        .candidate-label{
+            display:block;
+            cursor:pointer;
+        }
+
+        .candidate-box{
+            border:2px solid #dde6f4;
+            border-radius:22px;
+            padding:18px;
+            background:#fafcff;
+            transition:0.25s;
+            height:100%;
+        }
+
+        .candidate-box:hover{
+            border-color:#2a6cff;
+            transform:translateY(-3px);
+            box-shadow:0 10px 24px rgba(42,108,255,0.12);
+        }
+
+        .candidate-option input:checked + .candidate-label .candidate-box{
+            border-color:#2a6cff;
+            background:#eef4ff;
+        }
+
+        .top-row{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:14px;
+        }
+
+        .symbol-box{
+            width:58px;
+            height:58px;
+            border-radius:16px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:26px;
+            color:white;
+        }
+
+        .lotus{
+            background:linear-gradient(135deg,#ff9933,#ff6a00);
+        }
+
+        .fist{
+            background:linear-gradient(135deg,#1ca36d,#30c98a);
+        }
+
+        .bicycle{
+            background:linear-gradient(135deg,#6b5cff,#8a7dff);
+        }
+
+        .flag{
+            background:linear-gradient(135deg,#ff4d67,#ff7b90);
+        }
+
+        .tick{
+            width:28px;
+            height:28px;
+            border-radius:50%;
+            border:2px solid #c4cfdf;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            font-size:12px;
+        }
+
+        .candidate-option input:checked + .candidate-label .tick{
+            background:#2a6cff;
+            border-color:#2a6cff;
+        }
+
+        .candidate-name{
+            font-size:1.1rem;
+            font-weight:700;
+            color:#12284a;
+            margin-bottom:4px;
+        }
+
+        .candidate-symbol{
+            color:#6b7280;
+            font-size:14px;
+        }
+
+        .submit-btn{
+            width:100%;
+            border:none;
+            border-radius:18px;
+            padding:15px;
+            background:linear-gradient(135deg,#2a6cff,#1658e5);
+            color:white;
+            font-size:16px;
+            font-weight:700;
+            transition:0.25s;
+        }
+
+        .submit-btn:hover{
+            transform:translateY(-2px);
+            box-shadow:0 12px 25px rgba(42,108,255,0.3);
+        }
+
+        @media(max-width:768px){
+            .candidate-grid{
+                grid-template-columns:1fr;
+            }
+
+            .vote-card{
+                padding:22px;
+            }
+        }
+    </style>
 </head>
+<body>
 
-<body class="bg-light">
+    <div class="vote-container">
+        <div class="vote-card">
 
-<nav class="navbar navbar-dark bg-dark">
+            <div class="header">
+                <div class="header-icon">
+                    <i class="fa-solid fa-check-to-slot"></i>
+                </div>
 
-<div class="container">
+                <h1>Cast Your Vote</h1>
+                <p>Select one candidate. Your vote will be securely encrypted.</p>
+            </div>
 
-<span class="navbar-brand">Secure Voting System</span>
+            <form method="POST" action="/submit_vote">
 
-<a href="/dashboard" class="btn btn-outline-light">Dashboard</a>
+                <div class="candidate-grid">
 
-</div>
+                    <!-- Lotus -->
+                    <div class="candidate-option">
+                        <input type="radio" name="candidate" id="candidate1" value="Lotus Party" required>
 
-</nav>
+                        <label for="candidate1" class="candidate-label">
+                            <div class="candidate-box">
+                                <div class="top-row">
+                                    <div class="symbol-box lotus">
+                                        <i class="fa-solid fa-spa"></i>
+                                    </div>
 
-<div class="container mt-5">
+                                    <div class="tick">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
 
-<h2 class="text-center mb-4">Cast Your Vote</h2>
+                                <div class="candidate-name">Ananya Sharma</div>
+                                
+                            </div>
+                        </label>
+                    </div>
 
-<div class="row justify-content-center">
+                    <!-- Fist -->
+                    <div class="candidate-option">
+                        <input type="radio" name="candidate" id="candidate2" value="Fist Party">
 
-<div class="col-md-6">
+                        <label for="candidate2" class="candidate-label">
+                            <div class="candidate-box">
+                                <div class="top-row">
+                                    <div class="symbol-box fist">
+                                        <i class="fa-solid fa-hand-fist"></i>
+                                    </div>
 
-<div class="card shadow p-4">
+                                    <div class="tick">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
 
-<form method="POST" action="/submit_vote">
+                                <div class="candidate-name">Rahul Verma</div>
+                                
+                            </div>
+                        </label>
+                    </div>
 
-<div class="form-check mb-3">
+                    <!-- Bicycle -->
+                    <div class="candidate-option">
+                        <input type="radio" name="candidate" id="candidate3" value="Bicycle Party">
 
-<input class="form-check-input" type="radio" name="candidate" value="Alice" required>
+                        <label for="candidate3" class="candidate-label">
+                            <div class="candidate-box">
+                                <div class="top-row">
+                                    <div class="symbol-box bicycle">
+                                        <i class="fa-solid fa-bicycle"></i>
+                                    </div>
 
-<label class="form-check-label">Alice</label>
+                                    <div class="tick">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
 
-</div>
+                                <div class="candidate-name">Priya Reddy</div>
+                                
+                            </div>
+                        </label>
+                    </div>
 
-<div class="form-check mb-3">
+                    <!-- Flag -->
+                    <div class="candidate-option">
+                        <input type="radio" name="candidate" id="candidate4" value="Flag Party">
 
-<input class="form-check-input" type="radio" name="candidate" value="Bob">
+                        <label for="candidate4" class="candidate-label">
+                            <div class="candidate-box">
+                                <div class="top-row">
+                                    <div class="symbol-box flag">
+                                        <i class="fa-solid fa-flag"></i>
+                                    </div>
 
-<label class="form-check-label">Bob</label>
+                                    <div class="tick">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
 
-</div>
+                                <div class="candidate-name">Kiran Patel</div>
+                                
+                            </div>
+                        </label>
+                    </div>
 
-<button class="btn btn-primary w-100">Submit Vote</button>
+                </div>
 
-</form>
+                <button type="submit" class="submit-btn">
+                    <i class="fa-solid fa-paper-plane me-2"></i>
+                    Submit Secure Vote
+                </button>
 
-</div>
+            </form>
 
-</div>
-
-</div>
-
-</div>
+        </div>
+    </div>
 
 </body>
 </html>

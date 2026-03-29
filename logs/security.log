@@ -786,3 +786,626 @@
 2026-03-06 12:34:28,536 - 127.0.0.1 - - [06/Mar/2026 12:34:28] "GET /admin/export_blockchain HTTP/1.1" 200 -
 2026-03-06 12:34:31,814 - 127.0.0.1 - - [06/Mar/2026 12:34:31] "GET /dashboard HTTP/1.1" 200 -
 2026-03-06 12:34:32,974 - 127.0.0.1 - - [06/Mar/2026 12:34:32] "GET /blockchain HTTP/1.1" 200 -
+2026-03-27 16:42:24,077 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-27 16:42:24,082 - [33mPress CTRL+C to quit[0m
+2026-03-27 16:42:24,088 -  * Restarting with stat
+2026-03-27 16:42:25,210 -  * Debugger is active!
+2026-03-27 16:42:25,213 -  * Debugger PIN: 542-412-279
+2026-03-27 16:42:54,832 - 127.0.0.1 - - [27/Mar/2026 16:42:54] "GET / HTTP/1.1" 200 -
+2026-03-27 16:42:54,905 - 127.0.0.1 - - [27/Mar/2026 16:42:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-27 16:43:20,835 - 127.0.0.1 - - [27/Mar/2026 16:43:20] "GET /register HTTP/1.1" 200 -
+2026-03-27 16:43:26,709 - 127.0.0.1 - - [27/Mar/2026 16:43:26] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-27 16:44:03,709 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-27 16:44:03,709 - [33mPress CTRL+C to quit[0m
+2026-03-27 16:44:03,710 -  * Restarting with stat
+2026-03-27 16:44:04,426 -  * Debugger is active!
+2026-03-27 16:44:04,428 -  * Debugger PIN: 542-412-279
+2026-03-27 16:44:15,479 - 127.0.0.1 - - [27/Mar/2026 16:44:15] "GET / HTTP/1.1" 200 -
+2026-03-27 16:44:18,372 - 127.0.0.1 - - [27/Mar/2026 16:44:18] "GET /register HTTP/1.1" 200 -
+2026-03-27 16:44:21,579 - OTP sent for voter VOTER001
+2026-03-27 16:44:21,625 - 127.0.0.1 - - [27/Mar/2026 16:44:21] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-27 16:44:32,191 - 127.0.0.1 - - [27/Mar/2026 16:44:32] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-27 16:44:37,862 - VOTER001 completed registration
+2026-03-27 16:44:37,863 - 127.0.0.1 - - [27/Mar/2026 16:44:37] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-27 16:44:37,869 - 127.0.0.1 - - [27/Mar/2026 16:44:37] "GET / HTTP/1.1" 200 -
+2026-03-27 16:44:43,667 - VOTER001 logged in
+2026-03-27 16:44:43,671 - 127.0.0.1 - - [27/Mar/2026 16:44:43] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-27 16:44:43,694 - 127.0.0.1 - - [27/Mar/2026 16:44:43] "GET /dashboard HTTP/1.1" 200 -
+2026-03-27 16:44:45,545 - 127.0.0.1 - - [27/Mar/2026 16:44:45] "GET /vote HTTP/1.1" 200 -
+2026-03-27 16:44:49,891 - VOTER001 cast vote
+2026-03-27 16:44:49,917 - 127.0.0.1 - - [27/Mar/2026 16:44:49] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-27 16:44:59,414 - 127.0.0.1 - - [27/Mar/2026 16:44:59] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-27 16:45:02,890 - 127.0.0.1 - - [27/Mar/2026 16:45:02] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-27 16:45:06,918 - 127.0.0.1 - - [27/Mar/2026 16:45:06] "GET /dashboard HTTP/1.1" 200 -
+2026-03-27 16:45:08,461 - 127.0.0.1 - - [27/Mar/2026 16:45:08] "GET /blockchain HTTP/1.1" 200 -
+2026-03-29 13:04:48,545 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 13:04:48,546 - [33mPress CTRL+C to quit[0m
+2026-03-29 13:04:48,550 -  * Restarting with stat
+2026-03-29 13:04:49,307 -  * Debugger is active!
+2026-03-29 13:04:49,310 -  * Debugger PIN: 775-927-202
+2026-03-29 13:06:11,156 - 127.0.0.1 - - [29/Mar/2026 13:06:11] "[31m[1mGET /send_register_otp HTTP/1.1[0m" 405 -
+2026-03-29 13:06:11,187 - 127.0.0.1 - - [29/Mar/2026 13:06:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-29 13:06:15,627 - 127.0.0.1 - - [29/Mar/2026 13:06:15] "GET / HTTP/1.1" 200 -
+2026-03-29 13:10:01,164 - VOTER001 logged in
+2026-03-29 13:10:01,166 - 127.0.0.1 - - [29/Mar/2026 13:10:01] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 13:10:01,176 - 127.0.0.1 - - [29/Mar/2026 13:10:01] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:14:30,253 - 127.0.0.1 - - [29/Mar/2026 13:14:30] "GET / HTTP/1.1" 200 -
+2026-03-29 13:15:39,115 - 127.0.0.1 - - [29/Mar/2026 13:15:39] "GET /register HTTP/1.1" 200 -
+2026-03-29 13:15:41,781 - OTP sent for voter VOTER002
+2026-03-29 13:15:41,800 - 127.0.0.1 - - [29/Mar/2026 13:15:41] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:15:49,746 - 127.0.0.1 - - [29/Mar/2026 13:15:49] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:15:58,554 - 127.0.0.1 - - [29/Mar/2026 13:15:58] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:16:02,617 - VOTER002 completed registration
+2026-03-29 13:16:02,618 - 127.0.0.1 - - [29/Mar/2026 13:16:02] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 13:16:02,636 - 127.0.0.1 - - [29/Mar/2026 13:16:02] "GET / HTTP/1.1" 200 -
+2026-03-29 13:16:07,612 - VOTER002 logged in
+2026-03-29 13:16:07,616 - 127.0.0.1 - - [29/Mar/2026 13:16:07] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 13:16:07,624 - 127.0.0.1 - - [29/Mar/2026 13:16:07] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:17:42,211 - 127.0.0.1 - - [29/Mar/2026 13:17:42] "GET / HTTP/1.1" 200 -
+2026-03-29 13:17:48,224 - 127.0.0.1 - - [29/Mar/2026 13:17:48] "GET /register HTTP/1.1" 200 -
+2026-03-29 13:17:50,888 - 127.0.0.1 - - [29/Mar/2026 13:17:50] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:17:56,481 - OTP sent for voter VOTER004
+2026-03-29 13:17:56,646 - 127.0.0.1 - - [29/Mar/2026 13:17:56] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:18:11,454 - OTP sent for voter VOTER004
+2026-03-29 13:18:11,462 - 127.0.0.1 - - [29/Mar/2026 13:18:11] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:18:56,120 - 127.0.0.1 - - [29/Mar/2026 13:18:56] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:19:07,103 - 127.0.0.1 - - [29/Mar/2026 13:19:07] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:19:16,113 - 127.0.0.1 - - [29/Mar/2026 13:19:16] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:19:51,375 - 127.0.0.1 - - [29/Mar/2026 13:19:51] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:20:04,483 - VOTER004 completed registration
+2026-03-29 13:20:04,484 - 127.0.0.1 - - [29/Mar/2026 13:20:04] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 13:20:04,489 - 127.0.0.1 - - [29/Mar/2026 13:20:04] "GET / HTTP/1.1" 200 -
+2026-03-29 13:23:37,630 - 127.0.0.1 - - [29/Mar/2026 13:23:37] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:23:42,666 - 127.0.0.1 - - [29/Mar/2026 13:23:42] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:23:48,457 - 127.0.0.1 - - [29/Mar/2026 13:23:48] "GET /register HTTP/1.1" 200 -
+2026-03-29 13:23:51,933 - OTP sent for voter VOTER005
+2026-03-29 13:23:51,934 - 127.0.0.1 - - [29/Mar/2026 13:23:51] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:24:00,190 - 127.0.0.1 - - [29/Mar/2026 13:24:00] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:24:26,198 - 127.0.0.1 - - [29/Mar/2026 13:24:26] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:27:19,376 - VOTER001 logged in
+2026-03-29 13:27:19,389 - 127.0.0.1 - - [29/Mar/2026 13:27:19] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 13:27:19,488 - 127.0.0.1 - - [29/Mar/2026 13:27:19] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:27:23,407 - 127.0.0.1 - - [29/Mar/2026 13:27:23] "GET /blockchain HTTP/1.1" 200 -
+2026-03-29 13:28:00,519 - 127.0.0.1 - - [29/Mar/2026 13:28:00] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:28:02,849 - 127.0.0.1 - - [29/Mar/2026 13:28:02] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:29:38,061 - 127.0.0.1 - - [29/Mar/2026 13:29:38] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:29:42,583 - 127.0.0.1 - - [29/Mar/2026 13:29:42] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:29:45,355 - 127.0.0.1 - - [29/Mar/2026 13:29:45] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:29:47,163 - 127.0.0.1 - - [29/Mar/2026 13:29:47] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:29:48,494 - 127.0.0.1 - - [29/Mar/2026 13:29:48] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:29:50,970 - 127.0.0.1 - - [29/Mar/2026 13:29:50] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:29:54,226 - 127.0.0.1 - - [29/Mar/2026 13:29:54] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:30:30,285 - 127.0.0.1 - - [29/Mar/2026 13:30:30] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 13:30:30,297 - 127.0.0.1 - - [29/Mar/2026 13:30:30] "GET / HTTP/1.1" 200 -
+2026-03-29 13:30:36,729 - Failed login attempt VOTER004
+2026-03-29 13:30:36,729 - 127.0.0.1 - - [29/Mar/2026 13:30:36] "POST /login HTTP/1.1" 200 -
+2026-03-29 13:30:40,933 - VOTER004 logged in
+2026-03-29 13:30:40,934 - 127.0.0.1 - - [29/Mar/2026 13:30:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 13:30:40,938 - 127.0.0.1 - - [29/Mar/2026 13:30:40] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:30:43,333 - 127.0.0.1 - - [29/Mar/2026 13:30:43] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:31:06,568 - 127.0.0.1 - - [29/Mar/2026 13:31:06] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:31:08,151 - 127.0.0.1 - - [29/Mar/2026 13:31:08] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:32:42,868 - 127.0.0.1 - - [29/Mar/2026 13:32:42] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:33:13,708 - 127.0.0.1 - - [29/Mar/2026 13:33:13] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:33:23,278 - VOTER004 cast vote
+2026-03-29 13:33:23,288 - 127.0.0.1 - - [29/Mar/2026 13:33:23] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:34:29,368 - 127.0.0.1 - - [29/Mar/2026 13:34:29] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:34:31,640 - 127.0.0.1 - - [29/Mar/2026 13:34:31] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:34:36,117 - 127.0.0.1 - - [29/Mar/2026 13:34:36] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:34:37,975 - 127.0.0.1 - - [29/Mar/2026 13:34:37] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:34:39,527 - 127.0.0.1 - - [29/Mar/2026 13:34:39] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:34:41,010 - 127.0.0.1 - - [29/Mar/2026 13:34:41] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:34:42,413 - 127.0.0.1 - - [29/Mar/2026 13:34:42] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:34:44,606 - 127.0.0.1 - - [29/Mar/2026 13:34:44] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:34:46,447 - 127.0.0.1 - - [29/Mar/2026 13:34:46] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:34:49,189 - 127.0.0.1 - - [29/Mar/2026 13:34:49] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:34:51,646 - 127.0.0.1 - - [29/Mar/2026 13:34:51] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:34:56,073 - 127.0.0.1 - - [29/Mar/2026 13:34:56] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:35:06,054 - 127.0.0.1 - - [29/Mar/2026 13:35:06] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 13:35:06,059 - 127.0.0.1 - - [29/Mar/2026 13:35:06] "GET / HTTP/1.1" 200 -
+2026-03-29 13:35:07,393 - 127.0.0.1 - - [29/Mar/2026 13:35:07] "GET /register HTTP/1.1" 200 -
+2026-03-29 13:35:11,812 - 127.0.0.1 - - [29/Mar/2026 13:35:11] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:35:17,093 - 127.0.0.1 - - [29/Mar/2026 13:35:17] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:35:39,511 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 13:35:39,512 - [33mPress CTRL+C to quit[0m
+2026-03-29 13:35:39,513 -  * Restarting with stat
+2026-03-29 13:35:40,327 -  * Debugger is active!
+2026-03-29 13:35:40,331 -  * Debugger PIN: 775-927-202
+2026-03-29 13:35:43,236 - 127.0.0.1 - - [29/Mar/2026 13:35:43] "GET /register HTTP/1.1" 200 -
+2026-03-29 13:35:43,829 - 127.0.0.1 - - [29/Mar/2026 13:35:43] "GET /register HTTP/1.1" 200 -
+2026-03-29 13:35:45,912 - 127.0.0.1 - - [29/Mar/2026 13:35:45] "GET / HTTP/1.1" 200 -
+2026-03-29 13:35:48,975 - 127.0.0.1 - - [29/Mar/2026 13:35:48] "GET /register HTTP/1.1" 200 -
+2026-03-29 13:35:52,849 - OTP sent for voter VOTER001
+2026-03-29 13:35:52,853 - 127.0.0.1 - - [29/Mar/2026 13:35:52] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 13:36:00,848 - 127.0.0.1 - - [29/Mar/2026 13:36:00] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 13:36:06,197 - VOTER001 completed registration
+2026-03-29 13:36:06,198 - 127.0.0.1 - - [29/Mar/2026 13:36:06] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 13:36:06,202 - 127.0.0.1 - - [29/Mar/2026 13:36:06] "GET / HTTP/1.1" 200 -
+2026-03-29 13:36:12,862 - VOTER001 logged in
+2026-03-29 13:36:12,863 - 127.0.0.1 - - [29/Mar/2026 13:36:12] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 13:36:12,870 - 127.0.0.1 - - [29/Mar/2026 13:36:12] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:36:14,362 - 127.0.0.1 - - [29/Mar/2026 13:36:14] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:36:15,917 - VOTER001 cast vote
+2026-03-29 13:36:15,924 - 127.0.0.1 - - [29/Mar/2026 13:36:15] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:36:21,918 - 127.0.0.1 - - [29/Mar/2026 13:36:21] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:36:22,950 - 127.0.0.1 - - [29/Mar/2026 13:36:22] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:37:00,655 - 127.0.0.1 - - [29/Mar/2026 13:37:00] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:37:41,352 - 127.0.0.1 - - [29/Mar/2026 13:37:41] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:37:45,436 - 127.0.0.1 - - [29/Mar/2026 13:37:45] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:37:48,389 - 127.0.0.1 - - [29/Mar/2026 13:37:48] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:37:50,741 - 127.0.0.1 - - [29/Mar/2026 13:37:50] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:37:54,143 - 127.0.0.1 - - [29/Mar/2026 13:37:54] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:38:39,463 - 127.0.0.1 - - [29/Mar/2026 13:38:39] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:38:40,717 - 127.0.0.1 - - [29/Mar/2026 13:38:40] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:38:45,696 - 127.0.0.1 - - [29/Mar/2026 13:38:45] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:38:47,534 - 127.0.0.1 - - [29/Mar/2026 13:38:47] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:38:55,860 - 127.0.0.1 - - [29/Mar/2026 13:38:55] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:38:57,174 - 127.0.0.1 - - [29/Mar/2026 13:38:57] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:38:59,662 - 127.0.0.1 - - [29/Mar/2026 13:38:59] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:39:15,251 - 127.0.0.1 - - [29/Mar/2026 13:39:15] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:39:17,089 - 127.0.0.1 - - [29/Mar/2026 13:39:17] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:39:18,263 - 127.0.0.1 - - [29/Mar/2026 13:39:18] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:39:21,822 - 127.0.0.1 - - [29/Mar/2026 13:39:21] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:39:23,899 - 127.0.0.1 - - [29/Mar/2026 13:39:23] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:39:25,093 - 127.0.0.1 - - [29/Mar/2026 13:39:25] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:39:26,430 - 127.0.0.1 - - [29/Mar/2026 13:39:26] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:39:27,375 - 127.0.0.1 - - [29/Mar/2026 13:39:27] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:39:34,911 - 127.0.0.1 - - [29/Mar/2026 13:39:34] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:39:36,105 - 127.0.0.1 - - [29/Mar/2026 13:39:36] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:39:43,910 - 127.0.0.1 - - [29/Mar/2026 13:39:43] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:40:32,055 - 127.0.0.1 - - [29/Mar/2026 13:40:32] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:40:33,147 - 127.0.0.1 - - [29/Mar/2026 13:40:33] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:41:00,350 - 127.0.0.1 - - [29/Mar/2026 13:41:00] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:41:01,207 - 127.0.0.1 - - [29/Mar/2026 13:41:01] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:41:02,233 - 127.0.0.1 - - [29/Mar/2026 13:41:02] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:42:03,606 - 127.0.0.1 - - [29/Mar/2026 13:42:03] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:42:04,581 - 127.0.0.1 - - [29/Mar/2026 13:42:04] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:42:25,926 - 127.0.0.1 - - [29/Mar/2026 13:42:25] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:42:32,292 - 127.0.0.1 - - [29/Mar/2026 13:42:32] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:42:34,320 - 127.0.0.1 - - [29/Mar/2026 13:42:34] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:42:35,973 - 127.0.0.1 - - [29/Mar/2026 13:42:35] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:42:56,816 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 13:42:56,977 -  * Restarting with stat
+2026-03-29 13:43:31,455 -  * Restarting with stat
+2026-03-29 13:43:32,612 -  * Debugger is active!
+2026-03-29 13:43:32,615 -  * Debugger PIN: 775-927-202
+2026-03-29 13:43:50,363 - 127.0.0.1 - - [29/Mar/2026 13:43:50] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:43:51,396 - 127.0.0.1 - - [29/Mar/2026 13:43:51] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:43:56,053 - 127.0.0.1 - - [29/Mar/2026 13:43:56] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 13:43:57,628 - 127.0.0.1 - - [29/Mar/2026 13:43:57] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:45:29,475 - 127.0.0.1 - - [29/Mar/2026 13:45:29] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:45:31,000 - 127.0.0.1 - - [29/Mar/2026 13:45:31] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:45:32,239 - 127.0.0.1 - - [29/Mar/2026 13:45:32] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:45:37,848 - 127.0.0.1 - - [29/Mar/2026 13:45:37] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:48:07,572 - 127.0.0.1 - - [29/Mar/2026 13:48:07] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:50:18,169 - 127.0.0.1 - - [29/Mar/2026 13:50:18] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:52:02,759 - 127.0.0.1 - - [29/Mar/2026 13:52:02] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:52:08,903 - 127.0.0.1 - - [29/Mar/2026 13:52:08] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:52:12,281 - 127.0.0.1 - - [29/Mar/2026 13:52:12] "GET / HTTP/1.1" 200 -
+2026-03-29 13:52:14,696 - 127.0.0.1 - - [29/Mar/2026 13:52:14] "GET /admin HTTP/1.1" 200 -
+2026-03-29 13:53:50,673 - 127.0.0.1 - - [29/Mar/2026 13:53:50] "POST /admin HTTP/1.1" 200 -
+2026-03-29 13:54:32,148 - 127.0.0.1 - - [29/Mar/2026 13:54:32] "GET /admin HTTP/1.1" 200 -
+2026-03-29 13:54:37,290 - Admin logged in
+2026-03-29 13:54:37,294 - 127.0.0.1 - - [29/Mar/2026 13:54:37] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2026-03-29 13:54:37,322 - 127.0.0.1 - - [29/Mar/2026 13:54:37] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 13:54:39,442 - Election opened
+2026-03-29 13:54:39,442 - 127.0.0.1 - - [29/Mar/2026 13:54:39] "[32mGET /admin/open_election HTTP/1.1[0m" 302 -
+2026-03-29 13:54:39,450 - 127.0.0.1 - - [29/Mar/2026 13:54:39] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 13:54:41,147 - Election closed
+2026-03-29 13:54:41,148 - 127.0.0.1 - - [29/Mar/2026 13:54:41] "[32mGET /admin/close_election HTTP/1.1[0m" 302 -
+2026-03-29 13:54:41,156 - 127.0.0.1 - - [29/Mar/2026 13:54:41] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 13:54:42,559 - 127.0.0.1 - - [29/Mar/2026 13:54:42] "GET /admin/verify_chain HTTP/1.1" 200 -
+2026-03-29 13:54:44,726 - 127.0.0.1 - - [29/Mar/2026 13:54:44] "GET /admin/results HTTP/1.1" 200 -
+2026-03-29 13:55:41,216 - 127.0.0.1 - - [29/Mar/2026 13:55:41] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:55:45,022 - 127.0.0.1 - - [29/Mar/2026 13:55:45] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:55:46,808 - 127.0.0.1 - - [29/Mar/2026 13:55:46] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 13:56:40,181 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 13:57:03,471 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 13:57:03,471 - [33mPress CTRL+C to quit[0m
+2026-03-29 13:57:03,473 -  * Restarting with stat
+2026-03-29 13:57:04,338 -  * Debugger is active!
+2026-03-29 13:57:04,340 -  * Debugger PIN: 775-927-202
+2026-03-29 13:57:04,908 - 127.0.0.1 - - [29/Mar/2026 13:57:04] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 13:57:07,520 - 127.0.0.1 - - [29/Mar/2026 13:57:07] "GET /vote HTTP/1.1" 200 -
+2026-03-29 13:57:09,305 - 127.0.0.1 - - [29/Mar/2026 13:57:09] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 14:04:55,730 - 127.0.0.1 - - [29/Mar/2026 14:04:55] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 14:05:54,411 - 127.0.0.1 - - [29/Mar/2026 14:05:54] "GET / HTTP/1.1" 200 -
+2026-03-29 14:05:55,840 - 127.0.0.1 - - [29/Mar/2026 14:05:55] "GET /admin HTTP/1.1" 200 -
+2026-03-29 14:06:02,633 - Admin logged in
+2026-03-29 14:06:02,639 - 127.0.0.1 - - [29/Mar/2026 14:06:02] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2026-03-29 14:06:02,654 - 127.0.0.1 - - [29/Mar/2026 14:06:02] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:09:28,766 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\database\\db.py', reloading
+2026-03-29 14:09:28,928 -  * Restarting with stat
+2026-03-29 14:09:29,925 -  * Debugger is active!
+2026-03-29 14:09:29,927 -  * Debugger PIN: 775-927-202
+2026-03-29 14:09:31,067 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\database\\db.py', reloading
+2026-03-29 14:09:31,185 -  * Restarting with stat
+2026-03-29 14:09:32,162 -  * Debugger is active!
+2026-03-29 14:09:32,165 -  * Debugger PIN: 775-927-202
+2026-03-29 14:09:42,466 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 14:09:42,466 - [33mPress CTRL+C to quit[0m
+2026-03-29 14:09:42,468 -  * Restarting with stat
+2026-03-29 14:09:43,528 -  * Debugger is active!
+2026-03-29 14:09:43,533 -  * Debugger PIN: 775-927-202
+2026-03-29 14:09:44,418 - 127.0.0.1 - - [29/Mar/2026 14:09:44] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:09:45,627 - 127.0.0.1 - - [29/Mar/2026 14:09:45] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:09:46,955 - 127.0.0.1 - - [29/Mar/2026 14:09:46] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 14:09:46,961 - 127.0.0.1 - - [29/Mar/2026 14:09:46] "GET / HTTP/1.1" 200 -
+2026-03-29 14:09:51,841 - Failed login attempt VOTER001
+2026-03-29 14:09:51,842 - 127.0.0.1 - - [29/Mar/2026 14:09:51] "POST /login HTTP/1.1" 200 -
+2026-03-29 14:09:55,504 - Failed login attempt VOTER001
+2026-03-29 14:09:55,504 - 127.0.0.1 - - [29/Mar/2026 14:09:55] "POST /login HTTP/1.1" 200 -
+2026-03-29 14:10:09,180 - 127.0.0.1 - - [29/Mar/2026 14:10:09] "GET /register HTTP/1.1" 200 -
+2026-03-29 14:10:10,878 - OTP sent for voter VOTER001
+2026-03-29 14:10:10,880 - 127.0.0.1 - - [29/Mar/2026 14:10:10] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 14:10:21,370 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 14:10:21,371 - [33mPress CTRL+C to quit[0m
+2026-03-29 14:10:21,372 -  * Restarting with stat
+2026-03-29 14:10:22,297 -  * Debugger is active!
+2026-03-29 14:10:22,299 -  * Debugger PIN: 775-927-202
+2026-03-29 14:10:24,628 - OTP sent for voter VOTER001
+2026-03-29 14:10:24,633 - 127.0.0.1 - - [29/Mar/2026 14:10:24] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 14:10:29,758 - 127.0.0.1 - - [29/Mar/2026 14:10:29] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 14:10:34,411 - VOTER001 completed registration
+2026-03-29 14:10:34,412 - 127.0.0.1 - - [29/Mar/2026 14:10:34] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 14:10:34,419 - 127.0.0.1 - - [29/Mar/2026 14:10:34] "GET / HTTP/1.1" 200 -
+2026-03-29 14:10:40,238 - VOTER001 logged in
+2026-03-29 14:10:40,240 - 127.0.0.1 - - [29/Mar/2026 14:10:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 14:10:40,252 - 127.0.0.1 - - [29/Mar/2026 14:10:40] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:10:43,224 - 127.0.0.1 - - [29/Mar/2026 14:10:43] "GET /vote HTTP/1.1" 200 -
+2026-03-29 14:10:44,503 - 127.0.0.1 - - [29/Mar/2026 14:10:44] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 14:11:39,067 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 14:11:39,175 -  * Restarting with stat
+2026-03-29 14:11:40,304 -  * Debugger is active!
+2026-03-29 14:11:40,307 -  * Debugger PIN: 775-927-202
+2026-03-29 14:11:41,057 - 127.0.0.1 - - [29/Mar/2026 14:11:41] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 14:11:44,665 - 127.0.0.1 - - [29/Mar/2026 14:11:44] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 14:11:44,675 - 127.0.0.1 - - [29/Mar/2026 14:11:44] "GET / HTTP/1.1" 200 -
+2026-03-29 14:11:48,277 - Failed login attempt for VOTER002
+2026-03-29 14:11:48,278 - 127.0.0.1 - - [29/Mar/2026 14:11:48] "POST /login HTTP/1.1" 200 -
+2026-03-29 14:11:52,580 - Failed login attempt for VOTER001
+2026-03-29 14:11:52,582 - 127.0.0.1 - - [29/Mar/2026 14:11:52] "POST /login HTTP/1.1" 200 -
+2026-03-29 14:12:19,171 - Failed login attempt for VOTER001
+2026-03-29 14:12:19,227 - 127.0.0.1 - - [29/Mar/2026 14:12:19] "POST /login HTTP/1.1" 200 -
+2026-03-29 14:12:30,059 - Failed login attempt for VOTER001
+2026-03-29 14:12:30,065 - 127.0.0.1 - - [29/Mar/2026 14:12:30] "POST /login HTTP/1.1" 200 -
+2026-03-29 14:13:03,911 - Failed login attempt for VOTER001
+2026-03-29 14:13:03,920 - 127.0.0.1 - - [29/Mar/2026 14:13:03] "POST /login HTTP/1.1" 200 -
+2026-03-29 14:13:08,947 - Failed login attempt for VOTER001
+2026-03-29 14:13:08,948 - 127.0.0.1 - - [29/Mar/2026 14:13:08] "POST /login HTTP/1.1" 200 -
+2026-03-29 14:13:15,388 - VOTER001 logged in
+2026-03-29 14:13:15,389 - 127.0.0.1 - - [29/Mar/2026 14:13:15] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 14:13:15,399 - 127.0.0.1 - - [29/Mar/2026 14:13:15] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:13:32,490 - 127.0.0.1 - - [29/Mar/2026 14:13:32] "GET /vote HTTP/1.1" 200 -
+2026-03-29 14:13:33,588 - 127.0.0.1 - - [29/Mar/2026 14:13:33] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 14:15:38,820 - 127.0.0.1 - - [29/Mar/2026 14:15:38] "[32mGET /admin/dashboard HTTP/1.1[0m" 302 -
+2026-03-29 14:15:38,827 - 127.0.0.1 - - [29/Mar/2026 14:15:38] "GET /admin HTTP/1.1" 200 -
+2026-03-29 14:15:46,823 - Admin logged in
+2026-03-29 14:15:46,824 - 127.0.0.1 - - [29/Mar/2026 14:15:46] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2026-03-29 14:15:46,832 - 127.0.0.1 - - [29/Mar/2026 14:15:46] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:28:52,113 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 14:28:52,274 -  * Restarting with stat
+2026-03-29 14:29:12,135 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 14:29:12,135 - [33mPress CTRL+C to quit[0m
+2026-03-29 14:29:12,137 -  * Restarting with stat
+2026-03-29 14:29:12,909 -  * Debugger is active!
+2026-03-29 14:29:12,913 -  * Debugger PIN: 775-927-202
+2026-03-29 14:29:14,912 - 127.0.0.1 - - [29/Mar/2026 14:29:14] "GET /vote HTTP/1.1" 200 -
+2026-03-29 14:29:16,229 - 127.0.0.1 - - [29/Mar/2026 14:29:16] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:29:17,612 - 127.0.0.1 - - [29/Mar/2026 14:29:17] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:30:08,076 - 127.0.0.1 - - [29/Mar/2026 14:30:08] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:31:00,922 - 127.0.0.1 - - [29/Mar/2026 14:31:00] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:32:28,786 - 127.0.0.1 - - [29/Mar/2026 14:32:28] "[33mGET /admin/export_blockchain HTTP/1.1[0m" 404 -
+2026-03-29 14:32:52,854 - 127.0.0.1 - - [29/Mar/2026 14:32:52] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:33:08,933 - 127.0.0.1 - - [29/Mar/2026 14:33:08] "[32mPOST /admin/election_time HTTP/1.1[0m" 302 -
+2026-03-29 14:33:08,943 - 127.0.0.1 - - [29/Mar/2026 14:33:08] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:33:10,608 - 127.0.0.1 - - [29/Mar/2026 14:33:10] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:33:11,820 - 127.0.0.1 - - [29/Mar/2026 14:33:11] "GET /vote HTTP/1.1" 200 -
+2026-03-29 14:33:13,143 - 127.0.0.1 - - [29/Mar/2026 14:33:13] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 14:33:16,159 - 127.0.0.1 - - [29/Mar/2026 14:33:16] "[33mGET /verify_vote HTTP/1.1[0m" 404 -
+2026-03-29 14:33:19,175 - 127.0.0.1 - - [29/Mar/2026 14:33:19] "[33mGET /verify_vote HTTP/1.1[0m" 404 -
+2026-03-29 14:33:28,288 - 127.0.0.1 - - [29/Mar/2026 14:33:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 14:33:28,297 - 127.0.0.1 - - [29/Mar/2026 14:33:28] "GET / HTTP/1.1" 200 -
+2026-03-29 14:33:29,950 - 127.0.0.1 - - [29/Mar/2026 14:33:29] "GET /register HTTP/1.1" 200 -
+2026-03-29 14:33:35,375 - 127.0.0.1 - - [29/Mar/2026 14:33:35] "GET /register HTTP/1.1" 200 -
+2026-03-29 14:33:37,625 - 127.0.0.1 - - [29/Mar/2026 14:33:37] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 14:33:47,355 - 127.0.0.1 - - [29/Mar/2026 14:33:47] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 14:33:52,269 - 127.0.0.1 - - [29/Mar/2026 14:33:52] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 14:33:52,273 - 127.0.0.1 - - [29/Mar/2026 14:33:52] "GET / HTTP/1.1" 200 -
+2026-03-29 14:33:57,502 - 127.0.0.1 - - [29/Mar/2026 14:33:57] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 14:33:57,507 - 127.0.0.1 - - [29/Mar/2026 14:33:57] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:34:00,252 - 127.0.0.1 - - [29/Mar/2026 14:34:00] "[33mGET /admin/results HTTP/1.1[0m" 404 -
+2026-03-29 14:34:27,995 - 127.0.0.1 - - [29/Mar/2026 14:34:27] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:34:29,666 - 127.0.0.1 - - [29/Mar/2026 14:34:29] "GET /vote HTTP/1.1" 200 -
+2026-03-29 14:34:36,104 - 127.0.0.1 - - [29/Mar/2026 14:34:36] "[32mGET /admin/dashboard HTTP/1.1[0m" 302 -
+2026-03-29 14:34:36,114 - 127.0.0.1 - - [29/Mar/2026 14:34:36] "GET /admin HTTP/1.1" 200 -
+2026-03-29 14:34:42,486 - 127.0.0.1 - - [29/Mar/2026 14:34:42] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2026-03-29 14:34:42,494 - 127.0.0.1 - - [29/Mar/2026 14:34:42] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:34:47,100 - 127.0.0.1 - - [29/Mar/2026 14:34:47] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:34:50,182 - 127.0.0.1 - - [29/Mar/2026 14:34:50] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 14:34:50,188 - 127.0.0.1 - - [29/Mar/2026 14:34:50] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:34:52,271 - 127.0.0.1 - - [29/Mar/2026 14:34:52] "[33mGET /verify_vote HTTP/1.1[0m" 404 -
+2026-03-29 14:34:55,456 - 127.0.0.1 - - [29/Mar/2026 14:34:55] "GET /vote HTTP/1.1" 200 -
+2026-03-29 14:37:09,379 - 127.0.0.1 - - [29/Mar/2026 14:37:09] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:37:41,059 - 127.0.0.1 - - [29/Mar/2026 14:37:41] "[33mPOST /admin/add_candidate HTTP/1.1[0m" 404 -
+2026-03-29 14:40:29,647 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 14:40:29,930 -  * Restarting with stat
+2026-03-29 14:40:31,421 -  * Debugger is active!
+2026-03-29 14:40:31,424 -  * Debugger PIN: 775-927-202
+2026-03-29 14:40:33,680 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 14:40:33,887 -  * Restarting with stat
+2026-03-29 14:40:34,757 -  * Debugger is active!
+2026-03-29 14:40:34,759 -  * Debugger PIN: 775-927-202
+2026-03-29 14:40:35,224 - 127.0.0.1 - - [29/Mar/2026 14:40:35] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:40:47,278 - Admin added candidate: navya (phone party)
+2026-03-29 14:40:47,279 - 127.0.0.1 - - [29/Mar/2026 14:40:47] "[32mPOST /admin/add_candidate HTTP/1.1[0m" 302 -
+2026-03-29 14:40:47,290 - 127.0.0.1 - - [29/Mar/2026 14:40:47] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:40:54,419 - Admin deleted candidate with ID 5
+2026-03-29 14:40:54,420 - 127.0.0.1 - - [29/Mar/2026 14:40:54] "[32mGET /admin/delete_candidate/5 HTTP/1.1[0m" 302 -
+2026-03-29 14:40:54,436 - 127.0.0.1 - - [29/Mar/2026 14:40:54] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:41:00,121 - 127.0.0.1 - - [29/Mar/2026 14:41:00] "GET /admin/results HTTP/1.1" 200 -
+2026-03-29 14:41:07,954 - 127.0.0.1 - - [29/Mar/2026 14:41:07] "GET /admin/verify_chain HTTP/1.1" 200 -
+2026-03-29 14:41:52,188 - 127.0.0.1 - - [29/Mar/2026 14:41:52] "GET /vote HTTP/1.1" 200 -
+2026-03-29 14:42:25,746 - 127.0.0.1 - - [29/Mar/2026 14:42:25] "GET /admin/results HTTP/1.1" 200 -
+2026-03-29 14:42:28,527 - 127.0.0.1 - - [29/Mar/2026 14:42:28] "GET /admin/verify_chain HTTP/1.1" 200 -
+2026-03-29 14:42:30,755 - 127.0.0.1 - - [29/Mar/2026 14:42:30] "GET /admin/export_blockchain HTTP/1.1" 200 -
+2026-03-29 14:43:08,212 - 127.0.0.1 - - [29/Mar/2026 14:43:08] "GET /admin/verify_chain HTTP/1.1" 200 -
+2026-03-29 14:44:02,955 - 127.0.0.1 - - [29/Mar/2026 14:44:02] "GET /admin/verify_chain HTTP/1.1" 200 -
+2026-03-29 14:44:39,538 - 127.0.0.1 - - [29/Mar/2026 14:44:39] "GET /admin/verify_chain HTTP/1.1" 200 -
+2026-03-29 14:44:47,033 - 127.0.0.1 - - [29/Mar/2026 14:44:47] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:46:42,135 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 14:50:46,413 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 14:50:46,413 - [33mPress CTRL+C to quit[0m
+2026-03-29 14:50:46,415 -  * Restarting with stat
+2026-03-29 14:50:47,153 -  * Debugger is active!
+2026-03-29 14:50:47,155 -  * Debugger PIN: 775-927-202
+2026-03-29 14:50:47,269 - 127.0.0.1 - - [29/Mar/2026 14:50:47] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:50:59,759 - 127.0.0.1 - - [29/Mar/2026 14:50:59] "GET / HTTP/1.1" 200 -
+2026-03-29 14:51:16,920 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\database\\db.py', reloading
+2026-03-29 14:51:17,040 -  * Restarting with stat
+2026-03-29 14:52:51,789 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 14:52:51,789 - [33mPress CTRL+C to quit[0m
+2026-03-29 14:52:51,791 -  * Restarting with stat
+2026-03-29 14:52:52,604 -  * Debugger is active!
+2026-03-29 14:52:52,606 -  * Debugger PIN: 775-927-202
+2026-03-29 14:52:55,328 - 127.0.0.1 - - [29/Mar/2026 14:52:55] "GET / HTTP/1.1" 200 -
+2026-03-29 14:53:00,036 - 127.0.0.1 - - [29/Mar/2026 14:53:00] "GET /register HTTP/1.1" 200 -
+2026-03-29 14:53:02,524 - OTP sent for voter VOTER001
+2026-03-29 14:53:02,528 - 127.0.0.1 - - [29/Mar/2026 14:53:02] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 14:53:07,928 - 127.0.0.1 - - [29/Mar/2026 14:53:07] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 14:53:14,053 - VOTER001 completed registration
+2026-03-29 14:53:14,054 - 127.0.0.1 - - [29/Mar/2026 14:53:14] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 14:53:14,059 - 127.0.0.1 - - [29/Mar/2026 14:53:14] "GET / HTTP/1.1" 200 -
+2026-03-29 14:53:20,056 - VOTER001 logged in
+2026-03-29 14:53:20,058 - 127.0.0.1 - - [29/Mar/2026 14:53:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 14:53:20,076 - 127.0.0.1 - - [29/Mar/2026 14:53:20] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:53:23,454 - 127.0.0.1 - - [29/Mar/2026 14:53:23] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:53:32,124 - Admin manually opened the election
+2026-03-29 14:53:32,124 - 127.0.0.1 - - [29/Mar/2026 14:53:32] "[32mGET /admin/open_election HTTP/1.1[0m" 302 -
+2026-03-29 14:53:32,134 - 127.0.0.1 - - [29/Mar/2026 14:53:32] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:54:15,956 - Election timing updated: 2026-03-29T14:54 -> 2026-03-30T14:54
+2026-03-29 14:54:15,957 - 127.0.0.1 - - [29/Mar/2026 14:54:15] "[32mPOST /admin/election_time HTTP/1.1[0m" 302 -
+2026-03-29 14:54:16,144 - 127.0.0.1 - - [29/Mar/2026 14:54:16] "[35m[1mGET /admin/dashboard HTTP/1.1[0m" 500 -
+2026-03-29 14:54:16,436 - 127.0.0.1 - - [29/Mar/2026 14:54:16] "GET /admin/dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2026-03-29 14:54:16,442 - 127.0.0.1 - - [29/Mar/2026 14:54:16] "GET /admin/dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2026-03-29 14:54:16,483 - 127.0.0.1 - - [29/Mar/2026 14:54:16] "GET /admin/dashboard?__debugger__=yes&cmd=resource&f=console.png&s=0BUL9kvk4MD1nknR0WjN HTTP/1.1" 200 -
+2026-03-29 14:54:16,496 - 127.0.0.1 - - [29/Mar/2026 14:54:16] "GET /admin/dashboard?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2026-03-29 14:55:23,433 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 14:55:23,434 - [33mPress CTRL+C to quit[0m
+2026-03-29 14:55:23,435 -  * Restarting with stat
+2026-03-29 14:55:24,419 -  * Debugger is active!
+2026-03-29 14:55:24,421 -  * Debugger PIN: 775-927-202
+2026-03-29 14:55:27,364 - 127.0.0.1 - - [29/Mar/2026 14:55:27] "GET /admin HTTP/1.1" 200 -
+2026-03-29 14:55:32,301 - Admin logged in
+2026-03-29 14:55:32,303 - 127.0.0.1 - - [29/Mar/2026 14:55:32] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2026-03-29 14:55:32,326 - 127.0.0.1 - - [29/Mar/2026 14:55:32] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:55:41,954 - Election timing updated: 2026-03-29T14:55 -> 2026-03-29T14:55
+2026-03-29 14:55:41,954 - 127.0.0.1 - - [29/Mar/2026 14:55:41] "[32mPOST /admin/election_time HTTP/1.1[0m" 302 -
+2026-03-29 14:55:41,962 - 127.0.0.1 - - [29/Mar/2026 14:55:41] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:55:45,386 - 127.0.0.1 - - [29/Mar/2026 14:55:45] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:55:50,524 - Admin manually opened the election
+2026-03-29 14:55:50,524 - 127.0.0.1 - - [29/Mar/2026 14:55:50] "[32mGET /admin/open_election HTTP/1.1[0m" 302 -
+2026-03-29 14:55:50,534 - 127.0.0.1 - - [29/Mar/2026 14:55:50] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:55:55,701 - 127.0.0.1 - - [29/Mar/2026 14:55:55] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:55:57,423 - 127.0.0.1 - - [29/Mar/2026 14:55:57] "GET /vote HTTP/1.1" 200 -
+2026-03-29 14:55:58,760 - VOTER001 cast vote
+2026-03-29 14:55:58,769 - 127.0.0.1 - - [29/Mar/2026 14:55:58] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 14:56:00,820 - 127.0.0.1 - - [29/Mar/2026 14:56:00] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:56:01,630 - 127.0.0.1 - - [29/Mar/2026 14:56:01] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 14:56:06,576 - 127.0.0.1 - - [29/Mar/2026 14:56:06] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 14:56:08,116 - 127.0.0.1 - - [29/Mar/2026 14:56:08] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 14:56:18,954 - 127.0.0.1 - - [29/Mar/2026 14:56:18] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 14:57:36,267 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 14:57:36,383 -  * Restarting with stat
+2026-03-29 14:58:10,026 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 14:58:10,026 - [33mPress CTRL+C to quit[0m
+2026-03-29 14:58:10,028 -  * Restarting with stat
+2026-03-29 14:58:10,861 -  * Debugger is active!
+2026-03-29 14:58:10,864 -  * Debugger PIN: 775-927-202
+2026-03-29 15:08:00,158 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 15:08:00,401 -  * Restarting with stat
+2026-03-29 15:10:16,700 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 15:10:16,701 - [33mPress CTRL+C to quit[0m
+2026-03-29 15:10:16,702 -  * Restarting with stat
+2026-03-29 15:10:17,603 -  * Debugger is active!
+2026-03-29 15:10:17,607 -  * Debugger PIN: 775-927-202
+2026-03-29 15:10:18,688 - 127.0.0.1 - - [29/Mar/2026 15:10:18] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:10:32,175 - Election timing updated: 2026-03-29T15:10 -> 2026-03-30T15:10
+2026-03-29 15:10:32,176 - 127.0.0.1 - - [29/Mar/2026 15:10:32] "[32mPOST /admin/election_time HTTP/1.1[0m" 302 -
+2026-03-29 15:10:32,184 - 127.0.0.1 - - [29/Mar/2026 15:10:32] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:10:35,387 - Admin manually opened the election
+2026-03-29 15:10:35,387 - 127.0.0.1 - - [29/Mar/2026 15:10:35] "[32mGET /admin/open_election HTTP/1.1[0m" 302 -
+2026-03-29 15:10:35,397 - 127.0.0.1 - - [29/Mar/2026 15:10:35] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:11:21,349 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 15:11:21,349 - [33mPress CTRL+C to quit[0m
+2026-03-29 15:11:21,351 -  * Restarting with stat
+2026-03-29 15:11:22,188 -  * Debugger is active!
+2026-03-29 15:11:22,190 -  * Debugger PIN: 775-927-202
+2026-03-29 15:11:30,722 - 127.0.0.1 - - [29/Mar/2026 15:11:30] "[32mGET /admin/export_blockchain HTTP/1.1[0m" 302 -
+2026-03-29 15:11:30,734 - 127.0.0.1 - - [29/Mar/2026 15:11:30] "GET /admin HTTP/1.1" 200 -
+2026-03-29 15:11:30,785 - 127.0.0.1 - - [29/Mar/2026 15:11:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-29 15:11:33,022 - 127.0.0.1 - - [29/Mar/2026 15:11:33] "GET / HTTP/1.1" 200 -
+2026-03-29 15:11:39,954 - Failed login attempt for VOTER001
+2026-03-29 15:11:39,955 - 127.0.0.1 - - [29/Mar/2026 15:11:39] "POST /login HTTP/1.1" 200 -
+2026-03-29 15:11:41,771 - 127.0.0.1 - - [29/Mar/2026 15:11:41] "GET /register HTTP/1.1" 200 -
+2026-03-29 15:13:35,693 - Failed login attempt for VOTER001
+2026-03-29 15:13:35,731 - 127.0.0.1 - - [29/Mar/2026 15:13:35] "POST /login HTTP/1.1" 200 -
+2026-03-29 15:13:44,681 - Failed login attempt for VOTER001
+2026-03-29 15:13:44,682 - 127.0.0.1 - - [29/Mar/2026 15:13:44] "POST /login HTTP/1.1" 200 -
+2026-03-29 15:13:47,067 - 127.0.0.1 - - [29/Mar/2026 15:13:47] "GET /register HTTP/1.1" 200 -
+2026-03-29 15:13:48,771 - OTP sent for voter VOTER001
+2026-03-29 15:13:48,774 - 127.0.0.1 - - [29/Mar/2026 15:13:48] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 15:13:55,035 - 127.0.0.1 - - [29/Mar/2026 15:13:55] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 15:13:59,826 - VOTER001 completed registration
+2026-03-29 15:13:59,827 - 127.0.0.1 - - [29/Mar/2026 15:13:59] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 15:13:59,833 - 127.0.0.1 - - [29/Mar/2026 15:13:59] "GET / HTTP/1.1" 200 -
+2026-03-29 15:14:01,835 - 127.0.0.1 - - [29/Mar/2026 15:14:01] "GET /admin HTTP/1.1" 200 -
+2026-03-29 15:14:07,947 - Admin logged in
+2026-03-29 15:14:07,949 - 127.0.0.1 - - [29/Mar/2026 15:14:07] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2026-03-29 15:14:07,987 - 127.0.0.1 - - [29/Mar/2026 15:14:07] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:14:25,283 - 127.0.0.1 - - [29/Mar/2026 15:14:25] "GET / HTTP/1.1" 200 -
+2026-03-29 15:14:34,516 - Failed login attempt for VOTER001
+2026-03-29 15:14:34,517 - 127.0.0.1 - - [29/Mar/2026 15:14:34] "POST /login HTTP/1.1" 200 -
+2026-03-29 15:14:40,391 - VOTER001 logged in
+2026-03-29 15:14:40,393 - 127.0.0.1 - - [29/Mar/2026 15:14:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 15:14:40,406 - 127.0.0.1 - - [29/Mar/2026 15:14:40] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:14:44,001 - 127.0.0.1 - - [29/Mar/2026 15:14:44] "GET /admin HTTP/1.1" 200 -
+2026-03-29 15:14:49,602 - Admin logged in
+2026-03-29 15:14:49,603 - 127.0.0.1 - - [29/Mar/2026 15:14:49] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2026-03-29 15:14:49,614 - 127.0.0.1 - - [29/Mar/2026 15:14:49] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:15:08,353 - Election timing updated: 2026-03-29T15:14 -> 2026-03-29T15:20
+2026-03-29 15:15:08,354 - 127.0.0.1 - - [29/Mar/2026 15:15:08] "[32mPOST /admin/election_time HTTP/1.1[0m" 302 -
+2026-03-29 15:15:08,366 - 127.0.0.1 - - [29/Mar/2026 15:15:08] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:15:11,806 - 127.0.0.1 - - [29/Mar/2026 15:15:11] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:15:13,998 - 127.0.0.1 - - [29/Mar/2026 15:15:13] "GET /vote HTTP/1.1" 200 -
+2026-03-29 15:15:17,091 - 127.0.0.1 - - [29/Mar/2026 15:15:17] "GET /vote HTTP/1.1" 200 -
+2026-03-29 15:15:18,688 - VOTER001 cast vote
+2026-03-29 15:15:18,696 - 127.0.0.1 - - [29/Mar/2026 15:15:18] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 15:15:23,447 - 127.0.0.1 - - [29/Mar/2026 15:15:23] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:15:24,905 - 127.0.0.1 - - [29/Mar/2026 15:15:24] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:15:25,645 - 127.0.0.1 - - [29/Mar/2026 15:15:25] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:15:26,538 - 127.0.0.1 - - [29/Mar/2026 15:15:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 15:15:26,544 - 127.0.0.1 - - [29/Mar/2026 15:15:26] "GET / HTTP/1.1" 200 -
+2026-03-29 15:15:29,614 - 127.0.0.1 - - [29/Mar/2026 15:15:29] "GET /register HTTP/1.1" 200 -
+2026-03-29 15:15:31,583 - OTP sent for voter VOTER002
+2026-03-29 15:15:31,584 - 127.0.0.1 - - [29/Mar/2026 15:15:31] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 15:15:36,599 - 127.0.0.1 - - [29/Mar/2026 15:15:36] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 15:15:40,862 - VOTER002 completed registration
+2026-03-29 15:15:40,863 - 127.0.0.1 - - [29/Mar/2026 15:15:40] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 15:15:40,867 - 127.0.0.1 - - [29/Mar/2026 15:15:40] "GET / HTTP/1.1" 200 -
+2026-03-29 15:15:45,821 - VOTER002 logged in
+2026-03-29 15:15:45,822 - 127.0.0.1 - - [29/Mar/2026 15:15:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 15:15:45,827 - 127.0.0.1 - - [29/Mar/2026 15:15:45] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:15:47,420 - 127.0.0.1 - - [29/Mar/2026 15:15:47] "GET /vote HTTP/1.1" 200 -
+2026-03-29 15:15:49,258 - VOTER002 cast vote
+2026-03-29 15:15:49,260 - 127.0.0.1 - - [29/Mar/2026 15:15:49] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 15:15:51,690 - 127.0.0.1 - - [29/Mar/2026 15:15:51] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:15:53,340 - 127.0.0.1 - - [29/Mar/2026 15:15:53] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:15:53,918 - 127.0.0.1 - - [29/Mar/2026 15:15:53] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:15:55,185 - 127.0.0.1 - - [29/Mar/2026 15:15:55] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 15:15:55,190 - 127.0.0.1 - - [29/Mar/2026 15:15:55] "GET / HTTP/1.1" 200 -
+2026-03-29 15:15:56,685 - 127.0.0.1 - - [29/Mar/2026 15:15:56] "GET /register HTTP/1.1" 200 -
+2026-03-29 15:15:58,633 - OTP sent for voter VOTER003
+2026-03-29 15:15:58,634 - 127.0.0.1 - - [29/Mar/2026 15:15:58] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 15:16:06,535 - 127.0.0.1 - - [29/Mar/2026 15:16:06] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 15:16:11,853 - VOTER003 completed registration
+2026-03-29 15:16:11,854 - 127.0.0.1 - - [29/Mar/2026 15:16:11] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 15:16:11,861 - 127.0.0.1 - - [29/Mar/2026 15:16:11] "GET / HTTP/1.1" 200 -
+2026-03-29 15:16:19,840 - VOTER003 logged in
+2026-03-29 15:16:19,841 - 127.0.0.1 - - [29/Mar/2026 15:16:19] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 15:16:19,846 - 127.0.0.1 - - [29/Mar/2026 15:16:19] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:16:22,070 - 127.0.0.1 - - [29/Mar/2026 15:16:22] "GET /vote HTTP/1.1" 200 -
+2026-03-29 15:16:24,241 - VOTER003 cast vote
+2026-03-29 15:16:24,242 - 127.0.0.1 - - [29/Mar/2026 15:16:24] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 15:16:25,211 - 127.0.0.1 - - [29/Mar/2026 15:16:25] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:16:26,842 - 127.0.0.1 - - [29/Mar/2026 15:16:26] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:16:28,005 - 127.0.0.1 - - [29/Mar/2026 15:16:28] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:16:28,794 - 127.0.0.1 - - [29/Mar/2026 15:16:28] "GET /vote HTTP/1.1" 200 -
+2026-03-29 15:16:30,053 - 127.0.0.1 - - [29/Mar/2026 15:16:30] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 15:16:32,861 - 127.0.0.1 - - [29/Mar/2026 15:16:32] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:16:35,653 - 127.0.0.1 - - [29/Mar/2026 15:16:35] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 15:16:35,661 - 127.0.0.1 - - [29/Mar/2026 15:16:35] "GET / HTTP/1.1" 200 -
+2026-03-29 15:16:36,835 - 127.0.0.1 - - [29/Mar/2026 15:16:36] "GET /register HTTP/1.1" 200 -
+2026-03-29 15:16:38,888 - OTP sent for voter VOTER004
+2026-03-29 15:16:38,889 - 127.0.0.1 - - [29/Mar/2026 15:16:38] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 15:16:44,829 - 127.0.0.1 - - [29/Mar/2026 15:16:44] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 15:16:55,122 - VOTER004 completed registration
+2026-03-29 15:16:55,123 - 127.0.0.1 - - [29/Mar/2026 15:16:55] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 15:16:55,129 - 127.0.0.1 - - [29/Mar/2026 15:16:55] "GET / HTTP/1.1" 200 -
+2026-03-29 15:17:01,040 - VOTER004 logged in
+2026-03-29 15:17:01,041 - 127.0.0.1 - - [29/Mar/2026 15:17:01] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 15:17:01,056 - 127.0.0.1 - - [29/Mar/2026 15:17:01] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:17:02,280 - 127.0.0.1 - - [29/Mar/2026 15:17:02] "GET /vote HTTP/1.1" 200 -
+2026-03-29 15:17:03,611 - VOTER004 cast vote
+2026-03-29 15:17:03,613 - 127.0.0.1 - - [29/Mar/2026 15:17:03] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 15:17:04,643 - 127.0.0.1 - - [29/Mar/2026 15:17:04] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:17:07,684 - 127.0.0.1 - - [29/Mar/2026 15:17:07] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:17:09,420 - 127.0.0.1 - - [29/Mar/2026 15:17:09] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:17:18,642 - 127.0.0.1 - - [29/Mar/2026 15:17:18] "[32mGET /logout HTTP/1.1[0m" 302 -
+2026-03-29 15:17:18,647 - 127.0.0.1 - - [29/Mar/2026 15:17:18] "GET / HTTP/1.1" 200 -
+2026-03-29 15:17:20,564 - 127.0.0.1 - - [29/Mar/2026 15:17:20] "GET /register HTTP/1.1" 200 -
+2026-03-29 15:17:23,737 - OTP sent for voter VOTER005
+2026-03-29 15:17:23,738 - 127.0.0.1 - - [29/Mar/2026 15:17:23] "POST /send_register_otp HTTP/1.1" 200 -
+2026-03-29 15:17:30,114 - 127.0.0.1 - - [29/Mar/2026 15:17:30] "POST /verify_otp HTTP/1.1" 200 -
+2026-03-29 15:17:34,822 - VOTER005 completed registration
+2026-03-29 15:17:34,822 - 127.0.0.1 - - [29/Mar/2026 15:17:34] "[32mPOST /set_password HTTP/1.1[0m" 302 -
+2026-03-29 15:17:34,826 - 127.0.0.1 - - [29/Mar/2026 15:17:34] "GET / HTTP/1.1" 200 -
+2026-03-29 15:17:43,442 - VOTER005 logged in
+2026-03-29 15:17:43,443 - 127.0.0.1 - - [29/Mar/2026 15:17:43] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-29 15:17:43,447 - 127.0.0.1 - - [29/Mar/2026 15:17:43] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:17:44,887 - 127.0.0.1 - - [29/Mar/2026 15:17:44] "GET /vote HTTP/1.1" 200 -
+2026-03-29 15:17:46,318 - VOTER005 cast vote
+2026-03-29 15:17:46,320 - 127.0.0.1 - - [29/Mar/2026 15:17:46] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 15:17:48,738 - 127.0.0.1 - - [29/Mar/2026 15:17:48] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:17:49,425 - 127.0.0.1 - - [29/Mar/2026 15:17:49] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:17:52,917 - 127.0.0.1 - - [29/Mar/2026 15:17:52] "POST /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:17:53,529 - 127.0.0.1 - - [29/Mar/2026 15:17:53] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:17:58,385 - 127.0.0.1 - - [29/Mar/2026 15:17:58] "[32mGET /admin/close_election HTTP/1.1[0m" 302 -
+2026-03-29 15:17:58,389 - 127.0.0.1 - - [29/Mar/2026 15:17:58] "GET /admin HTTP/1.1" 200 -
+2026-03-29 15:18:03,557 - Admin logged in
+2026-03-29 15:18:03,559 - 127.0.0.1 - - [29/Mar/2026 15:18:03] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2026-03-29 15:18:03,568 - 127.0.0.1 - - [29/Mar/2026 15:18:03] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:18:09,641 - Admin manually closed the election
+2026-03-29 15:18:09,642 - 127.0.0.1 - - [29/Mar/2026 15:18:09] "[32mGET /admin/close_election HTTP/1.1[0m" 302 -
+2026-03-29 15:18:09,654 - 127.0.0.1 - - [29/Mar/2026 15:18:09] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:18:13,573 - 127.0.0.1 - - [29/Mar/2026 15:18:13] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:25:21,199 - 127.0.0.1 - - [29/Mar/2026 15:25:21] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:25:24,860 - 127.0.0.1 - - [29/Mar/2026 15:25:24] "GET /admin/results HTTP/1.1" 200 -
+2026-03-29 15:25:35,239 - 127.0.0.1 - - [29/Mar/2026 15:25:35] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:25:36,889 - 127.0.0.1 - - [29/Mar/2026 15:25:36] "GET /admin/verify_chain HTTP/1.1" 200 -
+2026-03-29 15:25:38,753 - 127.0.0.1 - - [29/Mar/2026 15:25:38] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:25:40,425 - 127.0.0.1 - - [29/Mar/2026 15:25:40] "GET /admin/export_blockchain HTTP/1.1" 200 -
+2026-03-29 15:26:29,702 - 127.0.0.1 - - [29/Mar/2026 15:26:29] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:28:13,527 -  * Detected change in 'C:\\Users\\HP\\OneDrive\\Desktop\\mini project\\secure_voting_system - Copy\\app.py', reloading
+2026-03-29 15:34:50,027 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-29 15:34:50,027 - [33mPress CTRL+C to quit[0m
+2026-03-29 15:34:50,029 -  * Restarting with stat
+2026-03-29 15:34:51,008 -  * Debugger is active!
+2026-03-29 15:34:51,013 -  * Debugger PIN: 775-927-202
+2026-03-29 15:34:51,932 - 127.0.0.1 - - [29/Mar/2026 15:34:51] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:35:04,339 - Election timing updated: 2026-03-29T15:34 -> 2026-03-29T15:37
+2026-03-29 15:35:04,340 - 127.0.0.1 - - [29/Mar/2026 15:35:04] "[32mPOST /admin/election_time HTTP/1.1[0m" 302 -
+2026-03-29 15:35:04,348 - 127.0.0.1 - - [29/Mar/2026 15:35:04] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:35:10,569 - 127.0.0.1 - - [29/Mar/2026 15:35:10] "GET /dashboard HTTP/1.1" 200 -
+2026-03-29 15:35:12,162 - 127.0.0.1 - - [29/Mar/2026 15:35:12] "GET /vote HTTP/1.1" 200 -
+2026-03-29 15:35:13,434 - 127.0.0.1 - - [29/Mar/2026 15:35:13] "POST /submit_vote HTTP/1.1" 200 -
+2026-03-29 15:35:18,395 - 127.0.0.1 - - [29/Mar/2026 15:35:18] "GET /verify_vote HTTP/1.1" 200 -
+2026-03-29 15:35:29,072 - Admin manually closed the election
+2026-03-29 15:35:29,072 - 127.0.0.1 - - [29/Mar/2026 15:35:29] "[32mGET /admin/close_election HTTP/1.1[0m" 302 -
+2026-03-29 15:35:29,081 - 127.0.0.1 - - [29/Mar/2026 15:35:29] "GET /admin/dashboard HTTP/1.1" 200 -
+2026-03-29 15:35:32,555 - 127.0.0.1 - - [29/Mar/2026 15:35:32] "GET /admin/dashboard HTTP/1.1" 200 -

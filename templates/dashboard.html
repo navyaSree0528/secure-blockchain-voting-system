@@ -1,94 +1,360 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Dashboard</title>
 
-<title>Voting Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
 
-<style>
-body{
-background:#f4f6f9;
-}
+        body{
+            background:#eef3fb;
+            min-height:100vh;
+        }
 
-.card:hover{
-transform:scale(1.04);
-transition:0.25s;
-}
-</style>
+        .navbar-custom{
+            background:linear-gradient(135deg,#071739,#123f8c);
+            padding:18px 0;
+            box-shadow:0 6px 20px rgba(0,0,0,0.18);
+        }
 
+        .navbar-brand{
+            color:white !important;
+            font-size:1.45rem;
+            font-weight:700;
+        }
+
+        .logout-btn{
+            border:1px solid rgba(255,255,255,0.4);
+            border-radius:40px;
+            padding:10px 24px;
+            color:white;
+            font-weight:600;
+            transition:0.25s;
+        }
+
+        .logout-btn:hover{
+            background:white;
+            color:#123f8c;
+        }
+
+        .hero-section{
+            margin-top:42px;
+            background:linear-gradient(135deg,#0a2250,#2463e8);
+            border-radius:32px;
+            padding:48px;
+            color:white;
+            position:relative;
+            overflow:hidden;
+            box-shadow:0 18px 40px rgba(20,65,150,0.22);
+        }
+
+        .hero-section::before{
+            content:'';
+            position:absolute;
+            width:260px;
+            height:260px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.08);
+            top:-80px;
+            right:-80px;
+        }
+
+        .hero-section h1{
+            font-size:2.6rem;
+            font-weight:700;
+            margin-bottom:14px;
+        }
+
+        .hero-section p{
+            color:#d7e5ff;
+            font-size:1.05rem;
+            max-width:700px;
+            line-height:1.8;
+            position:relative;
+            z-index:2;
+        }
+
+        .error-box{
+            margin-top:28px;
+            background:#fff1f2;
+            border:1px solid #ffc7cf;
+            color:#c62845;
+            border-radius:18px;
+            padding:16px 20px;
+            font-weight:600;
+            box-shadow:0 8px 20px rgba(198,40,69,0.08);
+        }
+
+        .card-section{
+            margin-top:38px;
+            margin-bottom:50px;
+        }
+
+        .dashboard-card{
+            background:white;
+            border-radius:28px;
+            padding:30px;
+            height:100%;
+            box-shadow:0 12px 30px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .dashboard-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .icon-box{
+            width:72px;
+            height:72px;
+            border-radius:20px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:28px;
+            margin-bottom:24px;
+        }
+
+        .blue{
+            background:#e8f1ff;
+            color:#2a6cff;
+        }
+
+        .green{
+            background:#e8fff2;
+            color:#1ca36d;
+        }
+
+        .orange{
+            background:#fff3e7;
+            color:#ff8c2a;
+        }
+
+        .dashboard-card h3{
+            font-size:1.5rem;
+            font-weight:700;
+            margin-bottom:12px;
+            color:#13233f;
+        }
+
+        .dashboard-card p{
+            color:#667085;
+            line-height:1.7;
+            margin-bottom:20px;
+        }
+
+        .status-box{
+            background:#fff8ef;
+            border:1px solid #ffd7a1;
+            border-radius:16px;
+            padding:16px;
+            margin-bottom:20px;
+            color:#8a5a12;
+            font-size:14px;
+            line-height:1.8;
+        }
+
+        .status-title{
+            font-weight:700;
+            font-size:15px;
+            margin-bottom:12px;
+            color:#ff8c2a;
+        }
+
+        .btn-custom{
+            border-radius:16px;
+            padding:12px 22px;
+            font-weight:600;
+            border:none;
+            transition:0.25s;
+        }
+
+        .btn-blue{
+            background:#2a6cff;
+            color:white;
+        }
+
+        .btn-green{
+            background:#1ca36d;
+            color:white;
+        }
+
+        .btn-orange{
+            background:#ff8c2a;
+            color:white;
+        }
+
+        .btn-disabled{
+            background:#cfd8ea;
+            color:#6f7f9b;
+            cursor:not-allowed;
+        }
+
+        .btn-blue:hover,
+        .btn-green:hover,
+        .btn-orange:hover{
+            color:white;
+            transform:translateY(-2px);
+            opacity:0.95;
+        }
+
+        @media(max-width:768px){
+            .hero-section{
+                padding:34px 26px;
+            }
+
+            .hero-section h1{
+                font-size:2rem;
+            }
+
+            .dashboard-card{
+                padding:24px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <span class="navbar-brand">
+                <i class="fa-solid fa-shield-halved me-2"></i>
+                Secure Voting System
+            </span>
 
-<div class="container">
+            <a href="/logout" class="btn logout-btn">
+                <i class="fa-solid fa-right-from-bracket me-2"></i>
+                Logout
+            </a>
+        </div>
+    </nav>
 
-<span class="navbar-brand">Secure Voting System</span>
+    <div class="container">
 
-<div>
+        {% if error %}
+        <div class="error-box">
+            <i class="fa-solid fa-circle-exclamation me-2"></i>
+            {{ error }}
+        </div>
+        {% endif %}
 
-<a href="/logout" class="btn btn-danger">Logout</a>
+        <div class="hero-section">
+            <h1>Welcome to Your Voting Dashboard</h1>
+            <p>
+                Cast your vote securely using our blockchain-based election system.
+                Your identity is protected, every vote is encrypted, and all records are stored securely.
+            </p>
+        </div>
 
-</div>
+        <div class="row g-4 card-section">
 
-</div>
+            <!-- Vote Card -->
+            <div class="col-lg-4">
+                <div class="dashboard-card">
+                    <div class="icon-box blue">
+                        <i class="fa-solid fa-check-to-slot"></i>
+                    </div>
 
-</nav>
+                    <h3>Cast Vote</h3>
 
-<div class="container mt-5">
+                    <p>
+                        Submit your vote securely and anonymously.
+                        Each voter can vote only once.
+                    </p>
 
-<h2 class="text-center mb-5">Voting Dashboard</h2>
+                    {% if election_open %}
+                        <a href="/vote" class="btn btn-custom btn-blue">
+                            <i class="fa-solid fa-check-to-slot me-2"></i>
+                            Vote Now
+                        </a>
+                    {% else %}
+                        <button class="btn btn-custom btn-disabled" disabled>
+                            <i class="fa-solid fa-lock me-2"></i>
+                            Voting Unavailable
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
 
-<div class="row">
+            <!-- Verify Vote -->
+            <div class="col-lg-4">
+                <div class="dashboard-card">
+                    <div class="icon-box green">
+                        <i class="fa-solid fa-shield-check"></i>
+                    </div>
 
-<div class="col-md-4">
+                    <h3>Verify Vote</h3>
 
-<div class="card shadow p-4 text-center">
+                    <p>
+                        Use your verification ID after voting to confirm that your vote was recorded successfully.
+                    </p>
 
-<h4>Cast Vote</h4>
+                    <a href="/verify_vote" class="btn btn-custom btn-green">
+                        <i class="fa-solid fa-magnifying-glass me-2"></i>
+                        Verify Vote
+                    </a>
+                </div>
+            </div>
 
-<p>Submit your vote securely</p>
+            <!-- Election Status -->
+            <div class="col-lg-4">
+                <div class="dashboard-card">
+                    <div class="icon-box orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
 
-<a href="/vote" class="btn btn-primary">Vote Now</a>
+                    <h3>Election Status</h3>
 
-</div>
+                    <div class="status-box">
 
-</div>
+                        <div class="status-title">
+                            {{ status_text }}
+                        </div>
 
-<div class="col-md-4">
+                        {% if start_time and end_time %}
+                            <div>
+                                <strong>Start:</strong>
+                                {{ start_time.strftime('%d %b %Y, %I:%M %p') }}
+                            </div>
 
-<div class="card shadow p-4 text-center">
+                            <div>
+                                <strong>End:</strong>
+                                {{ end_time.strftime('%d %b %Y, %I:%M %p') }}
+                            </div>
+                        {% else %}
+                            <div>
+                                Election schedule has not yet been set by the admin.
+                            </div>
+                        {% endif %}
 
-<h4>Verify Vote</h4>
+                    </div>
 
-<p>Verify your vote using verification ID</p>
+                    {% if election_open %}
+                        <a href="/vote" class="btn btn-custom btn-orange">
+                            <i class="fa-solid fa-bolt me-2"></i>
+                            Go to Voting
+                        </a>
+                    {% else %}
+                        <button class="btn btn-custom btn-disabled" disabled>
+                            <i class="fa-solid fa-hourglass-half me-2"></i>
+                            Waiting for Election
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
 
-<a href="/verify_vote" class="btn btn-success">Verify</a>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card shadow p-4 text-center">
-
-<h4>Blockchain Explorer</h4>
-
-<p>View blockchain vote ledger</p>
-
-<a href="/blockchain" class="btn btn-dark">Open Explorer</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+        </div>
+    </div>
 
 </body>
 </html>
